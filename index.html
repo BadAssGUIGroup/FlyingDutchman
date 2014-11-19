@@ -1,17 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
   <title>The Flying Dutchman Pub</title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1265.21">
-  <style type="text/css">
+
+  <style>
     p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    h1 {text-align: center;}
   </style>
+
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 </head>
+
 <body>
 <h1 >Welcome to The Flying Dutchman Pub</h1>
+
+  <div style="text-align: center" id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+      <li><a href="#" onclick="displayItems('LightBeers')">Light Beers</a></li>
+      <li><a href="#" onclick="displayItems('PortersAndStouts')">Porters and Stouts</a></li>
+      <li><a href="#" onclick="displayItems('Ales')">Ales</a></li>
+      <li><a href="#" onclick="displayItems('Lagers')">Lagers</a></li>
+      <li><a href="#" onclick="displayItems('WheatBeers')">Wheat Beers</a></li>
+    </ul>
+  </div>
+
+<form id="loginForm">
+<div id="loginBox">
+
+  <label id="userLogin" for="name">Username: </label>
+  <input type="text" name="name" id="name" placeholder="username" required/>
+  <label id="userPWD" for="pwd">Password: </label>
+  <input type="text" name="name" id="pwd" placeholder="password" required/>
+  <button class="pure-button">Login</button>
+</div>
+</form>
+
+<p id="test"></p>
+
+<script>
+  function displayItems(item){
+    document.getElementById("test").innerHTML = item;
+  }
+</script>
 
 <script type="text/javascript" src="js/vendor/lodash.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
