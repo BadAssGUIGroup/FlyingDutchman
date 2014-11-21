@@ -19,15 +19,15 @@
   <div id="loginBlock" style="display: inline-block; padding-top: 1%; float: right; margin-right: 1%">
     <form id="loginForm">
       <div id="userNameBox">
-        <label id="userLogin" for="name">Username: </label>
-        <input type="text" name="name" id="name" placeholder="username" required/>
+        <label id="userLogin" for="username">Username: </label>
+        <input type="text" name="name" id="username" placeholder="username" required/>
       </div>
       <div id="passwordBox" style="padding-top: 2%">
         <label id="userPWD" for="pwd">Password:</label>
-        <input type="text" name="name" id="pwd" placeholder="password" required/>
+        <input type="password" name="name" id="pwd" placeholder="password" required/>
       </div>
       <div id="loginButton" style="float: right; padding-top: 2%">
-        <button class="pure-button">Login</button>
+        <button class="pure-button" type="button" onclick="customerLogin()">Login</button>
       </div>
     </form>
   </div>
@@ -49,6 +49,21 @@
 <script>
   function displayItems(item){
     document.getElementById("test").innerHTML = item;
+  }
+  function customerLogin(){
+    var userName = document.getElementById("username").value;
+    var passWord = document.getElementById("pwd").value;
+    if(userName == 'username' && passWord == 'password'){
+      var userID = document.createTextNode("Customer: <> ID Number: <>");
+      var userTabAmount = document.createTextNode("Current Tab: <>");
+      var infoToReplace = document.getElementById("loginBlock");
+      infoToReplace.innerHTML = '';
+      infoToReplace.appendChild(userID);
+      infoToReplace.appendChild(userTabAmount);
+
+    } else {
+      alert("Incorrect username or password");
+    }
   }
 </script>
 
