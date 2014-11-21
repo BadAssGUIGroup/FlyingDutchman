@@ -1,15 +1,55 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
   <title>The Flying Dutchman Pub</title>
-  <style type="text/css">
+  <style>
     p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    h1 {text-align: center;}
   </style>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 </head>
+
 <body>
-<h1 >Welcome to The Flying Dutchman Pub</h1>
+<div id="titleAndLogin">
+  <div id="titleBlock" style="display: inline-block; padding-left: 32%">
+    <h1 >Welcome to The Flying Dutchman Pub</h1>
+  </div>
+  <div id="loginBlock" style="display: inline-block; padding-top: 1%; float: right; margin-right: 1%">
+    <form id="loginForm">
+      <div id="userNameBox">
+        <label id="userLogin" for="name">Username: </label>
+        <input type="text" name="name" id="name" placeholder="username" required/>
+      </div>
+      <div id="passwordBox" style="padding-top: 2%">
+        <label id="userPWD" for="pwd">Password:</label>
+        <input type="text" name="name" id="pwd" placeholder="password" required/>
+      </div>
+      <div id="loginButton" style="float: right; padding-top: 2%">
+        <button class="pure-button">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div style="padding-left: 31%; clear: both;" id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
+  <ul>
+    <li><a href="#" onclick="displayItems('LightBeers')">Light Beers</a></li>
+    <li><a href="#" onclick="displayItems('PortersAndStouts')">Porters and Stouts</a></li>
+    <li><a href="#" onclick="displayItems('Ales')">Ales</a></li>
+    <li><a href="#" onclick="displayItems('Lagers')">Lagers</a></li>
+    <li><a href="#" onclick="displayItems('WheatBeers')">Wheat Beers</a></li>
+  </ul>
+</div>
+
+
+<p id="test"></p>
+
+<script>
+  function displayItems(item){
+    document.getElementById("test").innerHTML = item;
+  }
+</script>
 
 <table id="beers">
     <thead></thead>
