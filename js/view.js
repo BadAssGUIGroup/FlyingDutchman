@@ -1,4 +1,6 @@
-
+/**
+ * Created by ashi on 2014-11-24.
+ */
 
 function View(collection, fields) {
     this.data = collection;
@@ -8,38 +10,6 @@ function View(collection, fields) {
 View.prototype.sort = function(field, isNumber) {
     this.data = sort(this.data, field, isNumber);
 };
-
-//View.prototype.display = function(table) {
-//    $(table + " tr").remove();
-//
-//    if (this.data == null)
-//        return;
-//
-//    var header = this.fields;
-//
-//    var headerRow = "<tr>";
-//    _(header).forEach(function (key) {
-//        headerRow = headerRow + "<th>" + key + "</th>";
-//    });
-//    headerRow = headerRow + "</tr>"
-//    $(table + " thead").append(headerRow);
-//
-//    var row = $(table).insertRow;
-//    var that = this;
-//
-//    _(this.data).forEach(function (beer) {
-//        row = "<tr>";
-//        _(that.fields).forEach(function (field) {
-//            row = row + "<td>" + beer[field] + "</td>";
-//        });
-//        row += "</tr>";
-//        $(table).append(row);
-//    });
-//
-//    $(table + " tr").click(function() {
-//        alert($(this).text());
-//    });
-//};
 
 View.prototype.display = function(tableId) {
     if (this.data == null)
@@ -75,7 +45,7 @@ View.prototype.display = function(tableId) {
             cellCount++;
         });
         row.onclick = function() {
-            console.log(beer['beer_id']);
+            alert("Beer Id: " + beer['beer_id']);
         };
         rowCount++;
     });
