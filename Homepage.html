@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+        The Flying Dutchman
+    </title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+<div id="Header">
+
+    <div id="titleAndLogin">
+        <div id="titleBlock" style="display: inline-block; padding-left: 15%">
+            <h1 >Welcome to The Flying Dutchman Pub!</h1>
+        </div>
+        <div id="loginBlock" style="display: inline-block; padding-top: 1%; float: right; margin-right: 5%">
+            <form id="loginForm">
+                <div id="userNameBox">
+                    <label id="userLogin" for="name">Username: </label>
+                    <input type="text" name="name" id="name" placeholder="username" required/>
+                </div>
+                <div id="passwordBox" style="padding-top: 2%">
+                    <label id="userPWD" for="pwd">Password:</label>
+                    <input type="text" name="name" id="pwd" placeholder="password" required/>
+                </div>
+                <div id="loginButton" style="float: right; padding-top: 2%">
+                    <button class="pure-button">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="padding-left: 15%; width: 60%; margin-left: auto; margin-right: auto; clear: both;" id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
+        <ul>
+            <li><a href="#" onclick="displayItems('LightBeers')">Light Beers</a></li>
+            <li><a href="#" onclick="displayItems('PortersAndStouts')">Porters and Stouts</a></li>
+            <li><a href="#" onclick="displayItems('Ales')">Ales</a></li>
+            <li><a href="#" onclick="displayItems('Lagers')">Lagers</a></li>
+            <li><a href="#" onclick="displayItems('WheatBeers')">Wheat Beers</a></li>
+        </ul>
+    </div>
+
+
+    <p id="test"></p>
+
+    <script>
+        function displayItems(item){
+            document.getElementById("test").innerHTML = item;
+        }
+    </script>
+
+    <table id="beers">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    <script type="text/javascript" src="js/vendor/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/vendor/lodash.min.js"></script>
+    <script type="text/javascript" src="js/globals.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/inventory.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</div>
+
+<div id = "Content"> Content </div>
+
+</body>
+</html>
