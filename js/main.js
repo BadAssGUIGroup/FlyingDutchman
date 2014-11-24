@@ -16,10 +16,10 @@ function customerLogin(){
 
 function displayItems(item) {
     view = (item == null) ?
-        inventory.getView(['namn', 'varugrupp', 'pub_price', 'count']) :
-        inventory.getView(['namn', 'varugrupp', 'pub_price', 'count'], 'varugrupp', beerTypes[item]);
+        inventory.getView(['namn', 'namn2', 'varugrupp', 'pub_price', 'count']) :
+        inventory.getView(['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], 'varugrupp', beerTypes[item]);
     view.sort('namn');
-    view.display('#beers');
+    view.display('beers');
 }
 
 
