@@ -1,3 +1,5 @@
+
+
 function View(collection, fields) {
     this.data = collection;
     this.fields = fields;
