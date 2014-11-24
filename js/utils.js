@@ -16,3 +16,23 @@ function request(username, password, action, callback, params) {
         success: callback
     });
 }
+
+function prune(collection, keys) {
+    return _.map(collection, function (elem) {
+        return _.filter(elem, function (field, key) {
+            return _.contains(keys, key);
+        })
+    })
+}
+
+
+
+function sort(collection, key, isNumber) {
+    if (isNumber == true) {
+        return _.sortBy(collection, function(elem) {
+            return parseInt(elem[key]);
+        });
+    } else {
+        return _.sortBy(collection, key);
+    }
+}

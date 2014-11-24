@@ -21,8 +21,9 @@ function customerLogin(){
 
 function init() {
     inventory = new Inventory();
-    inventory.refresh();
-    inventory.display("#beers");
+    inventory.refresh(function() {
+        inventory.display("#beers")
+    });
 }
 
 // Init inventory once page is loaded
