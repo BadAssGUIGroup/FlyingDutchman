@@ -1,3 +1,5 @@
+
+
 function View(collection, fields) {
     this.fields = fields;
     this.data = prune(collection, fields);
