@@ -17,22 +17,26 @@ function request(username, password, action, callback, params) {
     });
 }
 
-function prune(collection, keys) {
-    return _.map(collection, function (elem) {
-        return _.filter(elem, function (field, key) {
-            return _.contains(keys, key);
-        })
-    })
+function pruneObject(object, fields) {
+    var prunedObject = {};
+    _.forEach(fields, function(field) {
+        prunedObject[field] = object[field];
+    });
+    return prunedObject;
 }
 
+function prune(collection, fields) {
+    return _.map(collection, function (elem) {
+        return pruneObject(elem, fields);
+    });
+}
 
-
-function sort(collection, key, isNumber) {
+function sort(collection, field, isNumber) {
     if (isNumber == true) {
         return _.sortBy(collection, function(elem) {
-            return parseInt(elem[key]);
+            return parseInt(elem[field]);
         });
     } else {
-        return _.sortBy(collection, key);
+        return _.sortBy(collection, field);
     }
 }

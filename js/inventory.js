@@ -4,7 +4,6 @@
 
 function Inventory () {
     this.inventory = [];
-    this.header = [];
     this.beers = {};
     this.refreshing = false;
 }
@@ -13,8 +12,8 @@ Inventory.prototype.clear = function() {
     this.beers = {};
 };
 
-Inventory.prototype.addBeer = function(beer) {
-    this.beers[beer['nr']] = beer;
+Inventory.prototype.addBeer = function(beer, beerData) {
+    this.beers[beer['beer_id']] = _.assign(beer, beerData);
 };
 
 Inventory.prototype.refresh = function(callback) {
@@ -29,10 +28,10 @@ Inventory.prototype.refresh = function(callback) {
 
         _(that.inventory).forEach(function (beer) {
             request(admin.name, admin.password, actions.getBeerData, function(data) {
-                var beer = data.payload[0];
+                var beerData = data.payload[0];
 
-                if (beer != undefined)
-                    that.addBeer(beer);
+                if (beerData != undefined)
+                    that.addBeer(beer, beerData);
 
                 counter--;
                 if (counter == 0) {
@@ -50,53 +49,35 @@ Inventory.prototype.getBeer = function(id) {
     return this.beers[id];
 };
 
-Inventory.prototype.getBeer = function(field, value) {
-    return _.find(this.beers, function (beer) {
-        return (beer[field] != undefined && beer[field] == value);
-    });
-};
-
 Inventory.prototype.getBeers = function(field, value) {
-    return _.filter(this.beers, function (beer) {
-        return (beer[field] != undefined && beer[field] == value);
-    });
+    if (field == null)
+        return _.toArray(this.beers);
+    else
+        return _.filter(this.beers, function (beer) {
+            return (beer[field] != undefined && beer[field] == value);
+        });
 };
 
-Inventory.prototype.getBeers = function(filter) {
-    if (filter == null) {
-        return _.map(this.beers, function (beer, id) {
-            return beer;
-        })
-    } else {
-        return _.filter(this.beers, function (beer, id) {
+Inventory.prototype.getFilteredBeers = function(filter) {
+    if (filter == null)
+        return this.getBeers();
+    else
+        return _.filter(this.beers, function (beer) {
             if (filter(beer))
                 return true;
             else
                 return false;
         })
-    }
 };
 
-Inventory.prototype.display = function(table) {
-    $(table + " tr").remove();
+Inventory.prototype.getFilteredView = function(fields, filter) {
+    var beers = this.getBeers(filter);
+    return new View(beers, fields);
+};
 
-    if (this.beers == null)
-        return;
-
-    var headerRow = "<tr>";
-    _(this.header).forEach(function (key) {
-        headerRow = headerRow + "<th>" + key + "</th>";
-    });
-    headerRow = headerRow + "</tr>"
-    $(table + " thead").append(headerRow);
-
-    var row = "";
-    _(this.beers).forEach(function (beer, id) {
-        row = "<tr>";
-        _(beer).forEach(function (field) {
-            row = row + "<td>" + field + "</td>";
-        });
-        row += "</tr>";
-        $(table).append(row);
-    });
+Inventory.prototype.getView = function(fields, field, value) {
+    var beers = (field != null) ? this.getFilteredBeers(function (beer) {
+        return (beer[field].indexOf(value) > -1);
+    }) : this.getBeers();
+    return new View(beers, fields);
 };

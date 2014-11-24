@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
     <title>
         The Flying Dutchman
     </title>
@@ -36,38 +35,30 @@
 
     <div style="padding-left: 15%; width: 60%; margin-left: auto; margin-right: auto; clear: both;" id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
         <ul>
-            <li><a href="#" onclick="displayItems('LightBeers')">Light Beers</a></li>
-            <li><a href="#" onclick="displayItems('PortersAndStouts')">Porters and Stouts</a></li>
-            <li><a href="#" onclick="displayItems('Ales')">Ales</a></li>
-            <li><a href="#" onclick="displayItems('Lagers')">Lagers</a></li>
-            <li><a href="#" onclick="displayItems('WheatBeers')">Wheat Beers</a></li>
+            <li><a href="#" onclick="displayItems()">All</a></li>
+            <li><a href="#" onclick="displayItems('LIGHT_LAGER')">Light Beers</a></li>
+            <li><a href="#" onclick="displayItems('PORTER_AND_STOUT')">Porters and Stouts</a></li>
+            <li><a href="#" onclick="displayItems('ALE')">Ales</a></li>
+            <li><a href="#" onclick="displayItems('DARK_LAGER')">Dark Lagers</a></li>
+            <li><a href="#" onclick="displayItems('WHEAT_BEER')">Wheat Beers</a></li>
         </ul>
     </div>
 
+</div>
 
-    <p id="test"></p>
-
-    <script>
-        function displayItems(item){
-            document.getElementById("test").innerHTML = item;
-        }
-    </script>
-
+<div id = "Content"> Content
     <table id="beers">
         <thead></thead>
         <tbody></tbody>
     </table>
-
-    <script type="text/javascript" src="js/vendor/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="js/vendor/lodash.min.js"></script>
-    <script type="text/javascript" src="js/globals.js"></script>
-    <script type="text/javascript" src="js/utils.js"></script>
-    <script type="text/javascript" src="js/inventory.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-
 </div>
 
-<div id = "Content"> Content </div>
-
+<script type="text/javascript" src="js/vendor/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/vendor/lodash.min.js"></script>
+<script type="text/javascript" src="js/globals.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/inventory.js"></script>
+<script type="text/javascript" src="js/view.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

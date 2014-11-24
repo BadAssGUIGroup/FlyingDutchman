@@ -1,8 +1,3 @@
-var inventory;
-
-function displayItems(item){
-    document.getElementById("test").innerHTML = item;
-}
 function customerLogin(){
     var userName = document.getElementById("username").value;
     var passWord = document.getElementById("pwd").value;
@@ -19,10 +14,22 @@ function customerLogin(){
     }
 }
 
+function displayItems(item) {
+    view = (item == null) ?
+        inventory.getView(['namn', 'varugrupp', 'pub_price', 'count']) :
+        inventory.getView(['namn', 'varugrupp', 'pub_price', 'count'], 'varugrupp', beerTypes[item]);
+    view.sort('namn');
+    view.display('#beers');
+}
+
+
 function init() {
     inventory = new Inventory();
     inventory.refresh(function() {
-        inventory.display("#beers")
+        displayItems();
+        //view = inventory.getView(['namn', 'varugrupp', 'pub_price', 'count']);
+        //view.sort('varugrupp');
+        //view.display("#beers");
     });
 }
 
