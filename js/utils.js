@@ -40,3 +40,16 @@ function sort(collection, field, isNumber) {
         return _.sortBy(collection, field);
     }
 }
+
+function lexSort(collection, fields) {
+    return _.sortBy(collection, function(elem) {
+        var str = "";
+        var substr;
+        _.forEach(fields, function (field) {
+            substr = elem[field];
+            if (substr != undefined)
+                str += substr;
+        });
+        return str;
+    })
+}

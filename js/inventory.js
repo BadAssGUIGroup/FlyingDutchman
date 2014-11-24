@@ -71,7 +71,7 @@ Inventory.prototype.getFilteredBeers = function(filter) {
 };
 
 Inventory.prototype.getFilteredView = function(fields, filter) {
-    var beers = this.getBeers(filter);
+    var beers = this.getFilteredBeers(filter);
     return new View(beers, fields);
 };
 

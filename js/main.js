@@ -14,11 +14,14 @@ function customerLogin(){
     }
 }
 
-function displayItems(item) {
+function displayItems(item, sortField) {
     view = (item == null) ?
         inventory.getView(['namn', 'namn2', 'varugrupp', 'pub_price', 'count']) :
-        inventory.getView(['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], 'varugrupp', beerTypes[item]);
-    view.sort('namn');
+        //inventory.getView(['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], 'varugrupp', beerTypes[item]);
+        inventory.getFilteredView(['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], function (obj) {
+            return filters[item].pass(obj);
+        });
+    view.sort((sortField != null) ? sortField : 'namn');
     view.display('beers');
 }
 
