@@ -5,8 +5,8 @@
 function SubFilter(field, values, substring, isNegative) {
     this.field = field;
     this.values = values;
-    this.substring = (substring == true) ? true : false;
-    this.isNegative = (isNegative == true) ? true : false;
+    this.substring = (substring == true);
+    this.isNegative = (isNegative == true);
 }
 
 SubFilter.prototype.pass = function(object) {

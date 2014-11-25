@@ -14,29 +14,38 @@ function customerLogin(){
     }
 }
 
-function displayItems(item, sortField) {
-    view = (item == null) ?
-        inventory.getView(['namn', 'namn2', 'varugrupp', 'pub_price', 'count']) :
-        //inventory.getView(['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], 'varugrupp', beerTypes[item]);
-        inventory.getFilteredView(['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], function (obj) {
-            return filters[item].pass(obj);
-        });
-    view.sort((sortField != null) ? sortField : 'namn');
-    view.display('beers');
-}
 
+function initViews() {
+    var beers = inventory.getBeers();
+    _.forEach(beerTypes, function (value, beerType) {
+        viewCache.addView(beerType,
+            new View(beers, ['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], filters[beerType], 'namn', false));
+    });
+    viewCache.addView("MISC",
+        new View(beers, ['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], filters['MISC'], 'namn', false));
+    viewCache.addView("ALL",
+        new View(beers, ['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], filters['ALL'], 'namn', false));
+}
 
 function init() {
     inventory = new Inventory();
+    viewCache = new ViewCache(function () {
+        return inventory.getBeers();
+    });
+    initViews();
     inventory.refresh(function() {
-        displayItems();
-        //view = inventory.getView(['namn', 'varugrupp', 'pub_price', 'count']);
-        //view.sort('varugrupp');
-        //view.display("#beers");
+        viewCache.refreshAll();
+        displayItems("ALL");
     });
 }
 
-// Init inventory once page is loaded
+function displayItems(item, sortField) {
+    view = (item != null) ? viewCache.getView(item) : viewCache.getView("ALL");
+    if (sortField != null)
+        view.sort(sortField);
+    view.display('beers');
+}
+
 window.onload = function() {
   init();
 };
