@@ -1,4 +1,4 @@
-function customerLogin(){
+function loginUser(){
     var userName = document.getElementById("username").value;
     var passWord = document.getElementById("pwd").value;
     if(userName == 'username' && passWord == 'password'){
@@ -12,6 +12,10 @@ function customerLogin(){
     } else {
         alert("Incorrect username or password");
     }
+}
+
+function logOut(){
+    window.location.href = "Homepage.html";
 }
 
 
