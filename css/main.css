@@ -31,3 +31,26 @@
     margin-right: 10px;
     margin-bottom: 20px;
 }
+
+#beers table {
+    width: 80%;
+    align: center;
+    margin: 0 auto;
+}
+
+#beers th, td {
+    border-bottom: 1px solid #999;
+    width: 15%;
+    padding: 10px;
+    text-align: left;
+}
+
+#beers th {
+    font-size: 1.2em;
+    background-color: lightgreen;
+    color: white;
+}
+
+#beers tbody tr:hover {
+    background-color: #ffff99;
+}
