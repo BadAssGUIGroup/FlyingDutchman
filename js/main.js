@@ -4,10 +4,21 @@ function loginUser(){
     if(userName == 'username' && passWord == 'password'){
         var userID = document.createTextNode("Customer: <> ID Number: <>");
         var userTabAmount = document.createTextNode("Current Tab: <>");
+
+        /* create and style button */
+        var logOutButton = document.createElement("BUTTON");
+        logOutButton.setAttribute('type','button');
+        logOutButton.style.height="25px";
+        logOutButton.style.width="100px";
+        logOutButton.innerHTML = "Logout";
+        logOutButton.onclick = logOut;
+
+        /* clear and update login block to contain customer info */
         var infoToReplace = document.getElementById("loginBlock");
         infoToReplace.innerHTML = '';
         infoToReplace.appendChild(userID);
         infoToReplace.appendChild(userTabAmount);
+        infoToReplace.appendChild(logOutButton);
 
     } else {
         alert("Incorrect username or password");

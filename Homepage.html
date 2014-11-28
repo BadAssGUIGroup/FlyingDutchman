@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -10,20 +11,21 @@
 </head>
 <body>
 
+
 <div id="Header">
 
     <div id="titleAndLogin">
-        <div id="titleBlock" style="display: inline-block; padding-left: 10%">
-            <h1 >Welcome to The Flying Dutchman Pub!</h1>
+        <div id="titleBlock" style="display: inline-block; padding-left: 3%;" >
+            <img src="logo2.png" alt="alternative text" />
         </div>
-        <div id="loginBlock" style="display: inline-block; padding-top: 1%; float: right; margin-right: 5%">
+        <div id="loginBlock" style="display: inline-block; padding-top: 1%; float: right;  margin-right: 5%">
             <form id="loginForm">
                 <div id="userNameBox">
                     <label id="userLogin" for="username">Username: </label>
                     <input type="text" name="name" id="username" placeholder="username" required/>
                 </div>
                 <div id="passwordBox" style="padding-top: 2%">
-                    <label id="userPWD" for="pwd">Password:</label>
+                    <label id="userPWD" for="pwd">Password: </label>
                     <input type="password" name="name" id="pwd" placeholder="password" required/>
                 </div>
                 <div id="loginButton" style="float: right; padding-top: 2%">
@@ -33,7 +35,8 @@
         </div>
     </div>
 
-    <div style="padding-left: 15%; width: 60%; margin-left: auto; margin-right: auto; clear: both;" id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
+
+    <div style="padding-left: 1%; padding-right: 1%; width: 60%; margin-left: 20px; clear: both;" id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
         <ul>
             <li><a href="#" onclick="displayItems()">All</a></li>
             <li><a href="#" onclick="displayItems('LIGHT_LAGER')">Light Beers</a></li>
@@ -47,11 +50,47 @@
 
 </div>
 
+
 <div id = "Content">
     <table id="beers">
         <thead></thead>
         <tbody></tbody>
     </table>
+</div>
+
+<div id = "Right_div">
+
+    <html>
+    <head lang="en">
+        <meta charset="UTF-8">
+
+        <script type="text/javascript" src="http://jscart.googlecode.com/svn/jscart.js"></script>
+        <script type="text/javascript">
+
+            simpleCart.currency = SEK;
+
+            simpleCart.cartHeaders = ["Thumb_image_noHeader", "Name" , "Size_input_div_div", "Price" , "decrement_noHeader" , "Quantity", "increment_noHeader", "remove_noHeader", "Total" ];
+        </script>
+    </head>
+    <body>
+
+    <span class="simpleCart_total"></span> (<span class="simpleCart_quantity"></span> items) <br />
+    <a href="javascript:;" class="simpleCart_empty">Empty Cart</a> <a href="#" class="viewcart">Viewcart</a>
+
+    <div class="simpleCart_items" ></div>
+    <div style="clear:left"></div>
+
+
+    SubTotal: <span class="simpleCart_total"></span> <br />
+
+
+
+    Final Total: <span class="simpleCart_finalTotal"></span><br />
+    <a href="#" class="simpleCart_checkout">checkout</a>
+
+    </body>
+    </html>
+
 </div>
 
 
