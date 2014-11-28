@@ -13,7 +13,7 @@ function loginUser(){
         logOutButton.innerHTML = "Logout";
         logOutButton.onclick = logOut;
 
-        /* clear and update block to contain customer info */
+        /* clear and update login block to contain customer info */
         var infoToReplace = document.getElementById("loginBlock");
         infoToReplace.innerHTML = '';
         infoToReplace.appendChild(userID);
