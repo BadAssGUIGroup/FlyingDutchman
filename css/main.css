@@ -1,4 +1,7 @@
+
+
 #Header {
+
     position: fixed;
 
     border: 1px solid black;
@@ -13,32 +16,40 @@
 
     top: 0px;
     left: 0px;
+
+    z-index: 9999;
 }
 
 
 #Right_div {
+
     border: 1px solid black;
     background-color: #FF7FF3;
+
     float: right;
+
     width: 12%;
     height: 500px;
+    overflow: auto;
+
+    padding: 20px;
 
     margin-top: 200px;
     margin-left: 10px;
     margin-bottom: 10px;
     margin-right: 10px;
-    padding: 20px;
 
 }
 
 #Content {
+
     position: absolute;
+    float: left;
 
     border: 1px solid black;
     background-color: whitesmoke;
 
     width: 80%;
-    overflow: auto;
 
     padding: 20px;
 
@@ -46,6 +57,7 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 20px;
+
 }
 
 #beers table {
@@ -55,6 +67,7 @@
 }
 
 #beers th, td {
+
     border-bottom: 1px solid #999;
     width: 15%;
     padding: 10px;
@@ -62,11 +75,13 @@
 }
 
 #beers th {
+
     font-size: 1.2em;
     background-color: lightgreen;
     color: white;
 }
 
 #beers tbody tr:hover {
+
     background-color: #ffff99;
 }
