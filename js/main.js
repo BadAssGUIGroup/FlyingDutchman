@@ -37,12 +37,12 @@ function initViews() {
     var beers = inventory.getBeers();
     _.forEach(beerTypes, function (value, beerType) {
         viewCache.addView(beerType,
-            new View(beers, ['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], filters[beerType], 'namn', false));
+            new View(beers, ['namn', 'pub_price', 'count'], filters[beerType], 'namn', false));
     });
     viewCache.addView("MISC",
-        new View(beers, ['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], filters['MISC'], 'namn', false));
+        new View(beers, ['namn', 'varugrupp', 'pub_price', 'count'], filters['MISC'], 'namn', false));
     viewCache.addView("ALL",
-        new View(beers, ['namn', 'namn2', 'varugrupp', 'pub_price', 'count'], filters['ALL'], 'namn', false));
+        new View(beers, ['namn', 'varugrupp', 'pub_price', 'count'], filters['ALL'], 'namn', false));
 }
 
 function init() {

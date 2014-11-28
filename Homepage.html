@@ -50,9 +50,12 @@
 
 </div>
 
+<div id = Header_background>
+
+</div>
 
 <div id = "Content">
-    <table sortable id="beers">
+    <table id="beers">
         <thead></thead>
         <tbody></tbody>
     </table>
@@ -68,8 +71,7 @@
         <script type="text/javascript">
 
             simpleCart.currency = SEK;
-
-            simpleCart.cartHeaders = ["Thumb_image_noHeader", "Name" , "Size_input_div_div", "Price" , "decrement_noHeader" , "Quantity", "increment_noHeader", "remove_noHeader", "Total" ];
+            simpleCart.cartHeaders = ["Name" , "Price", "Quantity", "Total" ];
         </script>
     </head>
     <body>
@@ -82,8 +84,6 @@
 
 
     SubTotal: <span class="simpleCart_total"></span> <br />
-
-
 
     Final Total: <span class="simpleCart_finalTotal"></span><br />
     <a href="#" class="simpleCart_checkout">checkout</a>
@@ -103,7 +103,6 @@
 <script type="text/javascript" src="js/view.js"></script>
 <script type="text/javascript" src="js/viewcache.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
-
 
 </body>
 </html>
