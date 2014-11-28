@@ -6,8 +6,8 @@ function loginUser(){
     if (user == null || userName != passWord) {
         alert("Incorrect username or password");
     } else {
-        var userID = document.createTextNode("Customer: " + user['first_name'] + " " + user['last_name']);
-        var userTabAmount = document.createTextNode("Current Tab: " + user['assets']);
+        var userID = document.createTextNode("Customer: " + user.firstName + " " + user.lastName);
+        var userTabAmount = document.createTextNode("Current Tab: " + user.assets);
 
         /* create and style button */
         var logOutButton = document.createElement("BUTTON");

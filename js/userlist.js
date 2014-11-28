@@ -14,7 +14,7 @@ UserList.prototype.clear = function() {
 
 UserList.prototype.getUser = function (username) {
     return this.users[username];
-}
+};
 
 UserList.prototype.refresh = function(callback) {
     this.clear();
@@ -25,7 +25,7 @@ UserList.prototype.refresh = function(callback) {
         that.userList = data.payload;
 
         _.forEach(that.userList, function (user) {
-            that.users[user['username']] = user;
+            that.users[user['username']] = new User(user['username'], user['first_name'], user['last_name'], user['assets']);
         });
 
         if (callback != null)
