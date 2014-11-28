@@ -25,6 +25,8 @@
 
 #Right_div {
 
+    position: fixed;
+    left: 1140px;
     float: right;
 
     border: 1px solid black;
