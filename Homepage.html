@@ -55,6 +55,36 @@
 </div>
 
 <div id = "Right_div">
+    <html>
+    <head lang="en">
+        <meta charset="UTF-8">
+
+        <script type="text/javascript" src="http://jscart.googlecode.com/svn/jscart.js"></script>
+        <script type="text/javascript">
+
+            simpleCart.currency = SEK;
+
+            simpleCart.cartHeaders = ["Thumb_image_noHeader", "Name" , "Size_input_div_div", "Price" , "decrement_noHeader" , "Quantity", "increment_noHeader", "remove_noHeader", "Total" ];
+        </script>
+    </head>
+    <body>
+
+    <span class="simpleCart_total"></span> (<span class="simpleCart_quantity"></span> items) <br />
+    <a href="javascript:;" class="simpleCart_empty">Empty Cart</a> <a href="#" class="viewcart">Viewcart</a>
+
+    <div class="simpleCart_items" ></div>
+    <div style="clear:left"></div>
+
+
+    SubTotal: <span class="simpleCart_total"></span> <br />
+
+
+
+    Final Total: <span class="simpleCart_finalTotal"></span><br />
+    <a href="#" class="simpleCart_checkout">checkout</a>
+
+    </body>
+    </html>
 </div>
 
 
