@@ -1,9 +1,13 @@
 function loginUser(){
     var userName = document.getElementById("username").value;
     var passWord = document.getElementById("pwd").value;
-    if(1/*customer*/) {
-        var userID = document.createTextNode("Customer: <> ID Number: <>");
-        var userTabAmount = document.createTextNode("Current Tab: <>");
+
+    var user = userList.getUser(userName);
+    if (user == null || userName != passWord) {
+        alert("Incorrect username or password");
+    } else if(isEmployee(userName)){
+        var userID = document.createTextNode("Customer: " + user['first_name'] + " " + user['last_name']);
+        var userTabAmount = document.createTextNode("Current Tab: " + user['assets']);
 
         /* create and style button */
         var logOutButton = document.createElement("BUTTON");
@@ -19,12 +23,8 @@ function loginUser(){
         infoToReplace.appendChild(userID);
         infoToReplace.appendChild(userTabAmount);
         infoToReplace.appendChild(logOutButton);
-
-    } else if(0/*employee*/){
-
-
     } else {
-        alert("Incorrect username or password");
+        window.location.href = "employee.html";
     }
 }
 
@@ -47,6 +47,7 @@ function initViews() {
 
 function init() {
     inventory = new Inventory();
+    userList = new UserList();
     viewCache = new ViewCache(function () {
         return inventory.getBeers();
     });
@@ -55,6 +56,7 @@ function init() {
         viewCache.refreshAll();
         displayItems("ALL");
     });
+    userList.refresh();
 }
 
 function displayItems(item, sortField) {
