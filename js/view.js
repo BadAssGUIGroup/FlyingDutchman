@@ -61,11 +61,11 @@ View.prototype.display = function(tableId) {
             cellCount++;
         });
         row.onclick = function() {
-            alert("Beer Id: " + beer['beer_id']);
-            /*if(confirm("Add Beer to Cart")==true){
+            //alert("Beer Id: " + beer['beer_id']);
+            if(confirm("Add Beer to Cart")==true){
                 var name = "name=" + beer['beer_id'];
                 simpleCart.add(name,'price=0','size=Default','quantity=1','thumb=');
-            }*/
+            }
         };
         rowCount++;
     });

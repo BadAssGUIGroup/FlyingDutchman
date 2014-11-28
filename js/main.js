@@ -1,15 +1,15 @@
 function loginUser(){
     var userName = document.getElementById("username").value;
     var passWord = document.getElementById("pwd").value;
-    if(userName == 'username' && passWord == 'password'){
+    if(1/*customer*/) {
         var userID = document.createTextNode("Customer: <> ID Number: <>");
         var userTabAmount = document.createTextNode("Current Tab: <>");
 
         /* create and style button */
         var logOutButton = document.createElement("BUTTON");
-        logOutButton.setAttribute('type','button');
-        logOutButton.style.height="25px";
-        logOutButton.style.width="100px";
+        logOutButton.setAttribute('type', 'button');
+        logOutButton.style.height = "25px";
+        logOutButton.style.width = "100px";
         logOutButton.innerHTML = "Logout";
         logOutButton.onclick = logOut;
 
@@ -19,6 +19,9 @@ function loginUser(){
         infoToReplace.appendChild(userID);
         infoToReplace.appendChild(userTabAmount);
         infoToReplace.appendChild(logOutButton);
+
+    } else if(0/*employee*/){
+
 
     } else {
         alert("Incorrect username or password");
