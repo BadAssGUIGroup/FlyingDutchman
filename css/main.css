@@ -1,4 +1,11 @@
 
+#drinkMenu {
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 60%;
+    margin-left: 20px;
+    clear: both;
+}
 
 #Header {
 
@@ -107,6 +114,6 @@
 }
 
 #beers tbody tr:hover {
-
+    color: white;
     background-color: #8D1313;
 }

@@ -1,9 +1,13 @@
 function loginUser(){
     var userName = document.getElementById("username").value;
     var passWord = document.getElementById("pwd").value;
-    if(userName == 'username' && passWord == 'password'){
-        var userID = document.createTextNode("Customer: <> ID Number: <>");
-        var userTabAmount = document.createTextNode("Current Tab: <>");
+
+    var user = userList.getUser(userName);
+    if (user == null || userName != passWord) {
+        alert("Incorrect username or password");
+    } else {
+        var userID = document.createTextNode("Customer: " + user['first_name'] + " " + user['last_name']);
+        var userTabAmount = document.createTextNode("Current Tab: " + user['assets']);
 
         /* create and style button */
         var logOutButton = document.createElement("BUTTON");
@@ -20,8 +24,6 @@ function loginUser(){
         infoToReplace.appendChild(userTabAmount);
         infoToReplace.appendChild(logOutButton);
 
-    } else {
-        alert("Incorrect username or password");
     }
 }
 
@@ -44,6 +46,7 @@ function initViews() {
 
 function init() {
     inventory = new Inventory();
+    userList = new UserList();
     viewCache = new ViewCache(function () {
         return inventory.getBeers();
     });
@@ -52,6 +55,7 @@ function init() {
         viewCache.refreshAll();
         displayItems("ALL");
     });
+    userList.refresh();
 }
 
 function displayItems(item, sortField) {
