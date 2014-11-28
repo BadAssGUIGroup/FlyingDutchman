@@ -81,10 +81,14 @@
 
 }
 
+
 #beers table {
     width: 80%;
-    align: center;
     margin: 0 auto;
+}
+
+#beers body {
+    width: 100%;
 }
 
 #beers th, td {
