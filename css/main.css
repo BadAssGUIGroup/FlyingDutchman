@@ -23,10 +23,11 @@
 
 #Right_div {
 
+    float: right;
+
+    position: fixed;
     border: 1px solid black;
     background-color: #FF7FF3;
-
-    float: right;
 
     width: 12%;
     height: 500px;
