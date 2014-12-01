@@ -1,13 +1,31 @@
 function loginUser(){
     var userName = document.getElementById("username").value;
     var passWord = document.getElementById("pwd").value;
+    var userID;
+    var userTabAmount;
 
     var user = userList.getUser(userName);
     if (user == null || userName != passWord) {
         alert("Incorrect username or password");
     } else if(isEmployee(userName)){
-        var userID = document.createTextNode("Customer: " + user['first_name'] + " " + user['last_name']);
-        var userTabAmount = document.createTextNode("Current Tab: " + user['assets']);
+        window.location.href = "employee.html";
+        userID = document.createTextNode("Customer: " + user['first_name'] + " " + user['last_name']);
+        /* create and style button */
+        var logOutButton = document.createElement("BUTTON");
+        logOutButton.setAttribute('type', 'button');
+        logOutButton.style.height = "25px";
+        logOutButton.style.width = "100px";
+        logOutButton.innerHTML = "Logout";
+        logOutButton.onclick = logOut;
+
+        /* clear and update login block to contain customer info */
+        var infoToReplace = document.getElementById("infoAndLogout");
+        infoToReplace.innerHTML = '';
+        infoToReplace.appendChild(userID);
+        infoToReplace.appendChild(logOutButton);
+    } else {
+        userID = document.createTextNode("Customer: " + user.firstName + " " + user.lastName);
+        userTabAmount = document.createTextNode("Current Tab: " + user.assets);
 
         /* create and style button */
         var logOutButton = document.createElement("BUTTON");
@@ -23,8 +41,6 @@ function loginUser(){
         infoToReplace.appendChild(userID);
         infoToReplace.appendChild(userTabAmount);
         infoToReplace.appendChild(logOutButton);
-    } else {
-        window.location.href = "employee.html";
     }
 }
 
