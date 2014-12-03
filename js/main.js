@@ -7,9 +7,9 @@ function loginUser(){
     var user = userList.getUser(userName);
     if (user == null || userName != passWord) {
         alert("Incorrect username or password");
-    } else if(isEmployee(userName)){
+    } else if(user.isEmployee()){
         window.location.href = "employee.html";
-        userID = document.createTextNode("Customer: " + user['first_name'] + " " + user['last_name']);
+        userID = document.createTextNode("Employee: " + user['first_name'] + " " + user['last_name']);
         /* create and style button */
         var logOutButton = document.createElement("BUTTON");
         logOutButton.setAttribute('type', 'button');

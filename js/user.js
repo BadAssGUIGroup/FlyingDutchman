@@ -3,7 +3,7 @@
  */
 
 var employees = [
-    "ervtodd", "hirchr", "jorass", "saskru", "svetor"
+    "ervtod", "hirchr", "jorass", "saskru", "svetor"
 ];
 
 function User(username, firstName, lastName, assets) {
@@ -14,7 +14,8 @@ function User(username, firstName, lastName, assets) {
 }
 
 User.prototype.isEmployee = function () {
+    var that = this;
     return _.find(employees, function (name) {
-            return (name == username);
-        }) != null;
+            return (name == this.username);
+        }, this) != null;
 };
