@@ -45,16 +45,24 @@
 
 </div>
 
-<div id = "Content">
+<div id = "Content" style="display: inline-block">
     <table sortable id="beers">
         <thead></thead>
         <tbody></tbody>
     </table>
 </div>
 
-<div id = "Right_div">
+<div id = "Right_div" style="display: inline-block">
+    <p style="text-align: center; margin-top: 0%">Customer Tabs:</p>
+    <table sortable id="tabs">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+    <div id="editOrAddCustomerInfo">
+        <button class="pure-button" type="button" style="display: inline" onclick="editTab()" >Edit Tab</button>
+        <button class="pure-button" type="button" style="display: inline" onclick="createNewCustomer()" >New Customer</button>
+    </div>
 </div>
-
 
 
 <script type="text/javascript" src="js/vendor/jquery-1.11.1.min.js"></script>
@@ -65,8 +73,13 @@
 <script type="text/javascript" src="js/inventory.js"></script>
 <script type="text/javascript" src="js/view.js"></script>
 <script type="text/javascript" src="js/viewcache.js"></script>
+<script type="text/javascript" src="js/user.js"></script>
+<script type="text/javascript" src="js/userlist.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
+<script>
+    employeePageLoadUserInfo();
+</script>
 
 </body>
 </html>

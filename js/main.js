@@ -8,21 +8,8 @@ function loginUser(){
     if (user == null || userName != passWord) {
         alert("Incorrect username or password");
     } else if(user.isEmployee()){
-        window.location.href = "employee.html";
-        userID = document.createTextNode("Employee: " + user['first_name'] + " " + user['last_name']);
-        /* create and style button */
-        var logOutButton = document.createElement("BUTTON");
-        logOutButton.setAttribute('type', 'button');
-        logOutButton.style.height = "25px";
-        logOutButton.style.width = "100px";
-        logOutButton.innerHTML = "Logout";
-        logOutButton.onclick = logOut;
-
-        /* clear and update login block to contain customer info */
-        var infoToReplace = document.getElementById("infoAndLogout");
-        infoToReplace.innerHTML = '';
-        infoToReplace.appendChild(userID);
-        infoToReplace.appendChild(logOutButton);
+        var employeeHTMLString = "employee.html?user=" + userName;
+        window.location.href = employeeHTMLString;
     } else {
         userID = document.createTextNode("Customer: " + user.firstName + " " + user.lastName);
         userTabAmount = document.createTextNode("Current Tab: " + user.assets);
@@ -46,6 +33,34 @@ function loginUser(){
 
 function logOut(){
     window.location.href = "Homepage.html";
+}
+
+function employeePageLoadUserInfo(){
+    var url = window.location.href;
+    var userName = url.split("=");
+    var user = userList.getUser(userName[1]);
+    var userID = document.createTextNode("Employee: " + user['first_name'] + " " + user['last_name']);
+    /* create and style button */
+    var logOutButton = document.createElement("BUTTON");
+    logOutButton.setAttribute('type', 'button');
+    logOutButton.style.height = "25px";
+    logOutButton.style.width = "100px";
+    logOutButton.innerHTML = "Logout";
+    logOutButton.onclick = logOut;
+
+    /* clear and update login block to contain customer info */
+    var infoToReplace = document.getElementById("infoAndLogout");
+    infoToReplace.innerHTML = '';
+    infoToReplace.appendChild(userID);
+    infoToReplace.appendChild(logOutButton);
+}
+
+function createNewCustomer(){
+
+}
+
+function editTab(){
+
 }
 
 
