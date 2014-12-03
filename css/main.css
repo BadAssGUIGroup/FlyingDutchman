@@ -41,10 +41,7 @@
     z-index: 9997;
 
     background-color: #FFFFFF;
-
-
 }
-
 
 
 #Right_div {
@@ -116,4 +113,9 @@
 #beers tbody tr:hover {
     color: white;
     background-color: #8D1313;
+}
+
+#Languagebuttons {
+    margin-left: 65%;
+
 }
