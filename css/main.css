@@ -1,5 +1,28 @@
 
+#titleAndLogin{
+
+}
+
+#titleAndLoginSwedish{
+    display: none;
+}
+
 #drinkMenu {
+    display: block;
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 60%;
+    margin-left: 20px;
+    clear: both;
+}
+
+
+#drinkMenuSwedish{
+display: none;
+
+    position: absolute;
+    z-index: 1;
+
     padding-left: 1%;
     padding-right: 1%;
     width: 60%;
