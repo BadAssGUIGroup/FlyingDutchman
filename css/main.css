@@ -73,7 +73,7 @@
 
 
 #Right_div {
-
+    position: fixed;
     float: right;
 
     border: 1px solid black;
