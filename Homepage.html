@@ -1,13 +1,18 @@
 
 <!DOCTYPE html>
+
 <html>
 
 <head>
     <title>
         The Flying Dutchman
     </title>
+
+    <meta charset = "UTF-8">
+
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
 </head>
 
 
@@ -58,11 +63,8 @@
 
 
     <div id = Languagebuttons>
-
         <input type="image" name="submit" value="submit" src="Swedish_icon.png" onclick="setVisibility('HeaderSwedish','block');" />
-
         <input type="image" name="submit" value="submit" src="United-States-icon.png" onClick="setVisibility('HeaderSwedish', 'none');" />
-
     </div>
 
 
@@ -77,12 +79,12 @@
         <div id="loginBlock" style="display: inline-block; padding-top: 1%; float: right; margin-right: 5% ">
             <form id="loginForm">
                 <div id="userNameBox">
-                    <label id="userLogin" for="username">Anvandarnamn: </label>
-                    <input type="text" name="name" id="username" placeholder="anvandarnamn" required/>
+                    <label id="userLogin" for="username">Användarnamn: </label>
+                    <input type="text" name="name" id="username" placeholder="användarnamn" required/>
                 </div>
                 <div id="passwordBox" style="padding-top: 2%; ">
-                    <label id="userPWD" for="pwd">Losenord: </label>
-                    <input type="password" name="name" id="pwd" placeholder="losenord" required/>
+                    <label id="userPWD" for="pwd">Lösenord: </label>
+                    <input type="password" name="name" id="pwd" placeholder="lösenord" required/>
                 </div>
                 <div id="loginButton" style="float: right; padding-top: 2%">
                     <button class="pure-button" type="button" onclick="loginUser()" >Logga in</button>
@@ -96,11 +98,11 @@
     <div id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
         <ul>
             <li><a href="#" onclick="displayItems()">Alla</a></li>
-            <li><a href="#" onclick="displayItems('LIGHT_LAGER')">Lattol</a></li>
+            <li><a href="#" onclick="displayItems('LIGHT_LAGER')">Lättöl</a></li>
             <li><a href="#" onclick="displayItems('PORTER_AND_STOUT')">Porters och Stouts</a></li>
             <li><a href="#" onclick="displayItems('ALE')">Ales</a></li>
-            <li><a href="#" onclick="displayItems('DARK_LAGER')">Morka Lager</a></li>
-            <li><a href="#" onclick="displayItems('WHEAT_BEER')">Veteol</a></li>
+            <li><a href="#" onclick="displayItems('DARK_LAGER')">Mörka Lager</a></li>
+            <li><a href="#" onclick="displayItems('WHEAT_BEER')">Veteöl</a></li>
             <li><a href="#" onclick="displayItems('MISC')">Diverse</a></li>
         </ul>
     </div>
@@ -108,11 +110,8 @@
 
 
     <div id = Languagebuttons>
-
         <input type="image" name="submit" value="submit" src="Swedish_icon.png" />
-
         <input type="image" name="submit" value="submit" src="United-States-icon.png" onClick="setVisibility('HeaderSwedish', 'none');" />
-
     </div>
 
 
