@@ -56,7 +56,35 @@ function employeePageLoadUserInfo(){
 }
 
 function createNewCustomer(){
+    var customerInfoDiv = document.getElementById("editOrAddCustomerInfo");
+    var newCustomerFields = document.getElementById("createNewCustomer");
+    var tabTable = document.getElementById("tabs");
+    tabTable.style.display = 'none';
+    customerInfoDiv.style.display = 'none';
+    newCustomerFields.style.display = 'block';
 
+}
+
+function addCustomer(){
+    var firstName = document.getElementById("firstName").value;
+    var surname = document.getElementById("surname").value;
+    var userName = document.getElementById("username").value;
+    var password = document.getElementById("pwd").value;
+    var passwordConfirm = document.getElementById("pwdConfirm").value;
+
+    if(firstName==''||surname==''||userName==''||password==''||passwordConfirm==''){
+        alert("All fields must be filled in");
+    } else if(password != passwordConfirm){
+        alert("Password and Confirm Password Do Not Match");
+    } else {
+        /*add code here to send info to the database*/
+        var customerInfoDiv = document.getElementById("editOrAddCustomerInfo");
+        var newCustomerFields = document.getElementById("createNewCustomer");
+        var tabTable = document.getElementById("tabs");
+        tabTable.style.display = 'block';
+        customerInfoDiv.style.display = 'block';
+        newCustomerFields.style.display = 'none';
+    }
 }
 
 function editTab(){
