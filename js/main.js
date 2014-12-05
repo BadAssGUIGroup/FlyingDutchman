@@ -80,7 +80,7 @@ function addCustomer(){
         var newCustomerFields = document.getElementById("createNewCustomer");
         var tabTable = document.getElementById("tabs");
         tabTable.style.display = 'block';
-        customerInfoDiv.style.display = 'block';
+        customerInfoDiv.style.display = 'inline-block';
         newCustomerFields.style.display = 'none';
     }
 }
