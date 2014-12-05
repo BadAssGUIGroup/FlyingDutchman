@@ -74,6 +74,8 @@
 
 #Right_div {
 
+    display: none;
+
     float: right;
     position: fixed;
 
