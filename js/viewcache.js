@@ -29,6 +29,5 @@ ViewCache.prototype.toJSON = function () {
 
 ViewCache.prototype.loadJSON = function (json) {
     this.data = json['data'];
-    this.views = json['views'];
 };
 
