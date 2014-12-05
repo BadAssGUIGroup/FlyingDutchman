@@ -21,7 +21,7 @@ UserList.prototype.refresh = function(callback) {
     this.refreshing = true;
     var that = this;
 
-    request(admin.name, admin.password, actions.getUsers, function (data) {
+    request(globals.admin.name, globals.admin.password, globals.actions.getUsers, function (data) {
         that.userList = data.payload;
 
         _.forEach(that.userList, function (user) {
@@ -36,3 +36,11 @@ UserList.prototype.refresh = function(callback) {
 
 };
 
+UserList.prototype.toJSON = function () {
+    return {'userList': this.userList, 'users': this.users};
+};
+
+UserList.prototype.loadJSON = function (json) {
+    this.userList = json['userList'];
+    this.users = json['users'];
+};

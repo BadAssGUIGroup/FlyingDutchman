@@ -3,7 +3,7 @@
  */
 
 function request(username, password, action, callback, params) {
-    var url = databaseURL + "?username=" + username + "&password=" + password + "&action=" + action;
+    var url = window.globals.databaseURL + "?username=" + username + "&password=" + password + "&action=" + action;
 
     _(params).forEach(function (param) {
         url += "&" + param['name'] + "=" + param['value'];

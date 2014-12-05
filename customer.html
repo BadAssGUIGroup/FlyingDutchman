@@ -1,10 +1,179 @@
+
 <!DOCTYPE html>
+
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+
+<head>
+    <title>
+        The Flying Dutchman
+    </title>
+
+    <meta charset = "UTF-8">
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
 </head>
+
+
 <body>
+
+<script language="JavaScript">
+    function setVisibility(id, visibility) {
+        document.getElementById(id).style.display = visibility;
+    }
+</script>
+
+<div id="Header">
+
+    <div id="titleAndLogin">
+        <div id="titleBlock" style="display: inline-block; padding-left: 3%;" >
+            <img src="logo2.png"/>
+        </div>
+<!--        <div id="loginBlock" style="display: inline-block; padding-top: 1%; float: right;  margin-right: 5%">
+            <form id="loginForm">
+                <div id="userNameBox">
+                    <label id="userLogin" for="username">Username: </label>
+                    <input type="text" name="name" id="username" placeholder="username" required/>
+                </div>
+                <div id="passwordBox" style="padding-top: 2%">
+                    <label id="userPWD" for="pwd">Password: </label>
+                    <input type="password" name="name" id="pwd" placeholder="password" required/>
+                </div>
+                <div id="loginButton" style="float: right; padding-top: 2%">
+                    <button class="pure-button" type="button" onclick="loginUser()" >Login</button>
+                </div>
+            </form>
+        </div>-->
+    </div>
+
+
+
+    <div id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
+        <ul>
+            <li><a href="#" onclick="displayItems()">All</a></li>
+            <li><a href="#" onclick="displayItems('LIGHT_LAGER')">Light Beers</a></li>
+            <li><a href="#" onclick="displayItems('PORTER_AND_STOUT')">Porters and Stouts</a></li>
+            <li><a href="#" onclick="displayItems('ALE')">Ales</a></li>
+            <li><a href="#" onclick="displayItems('DARK_LAGER')">Dark Lagers</a></li>
+            <li><a href="#" onclick="displayItems('WHEAT_BEER')">Wheat Beers</a></li>
+            <li><a href="#" onclick="displayItems('MISC')">Misc</a></li>
+        </ul>
+    </div>
+
+
+    <div id = Languagebuttons>
+        <input type="image" name="submit" value="submit" src="Swedish_icon.png" onclick="setVisibility('HeaderSwedish','block');" />
+        <input type="image" name="submit" value="submit" src="United-States-icon.png" onClick="setVisibility('HeaderSwedish', 'none');" />
+    </div>
+
+
+</div>
+
+<div id="HeaderSwedish">
+
+    <div id="titleAndLogin">
+        <div id="titleBlock" style="display: inline-block; padding-left: 3%;" >
+            <img src="logo2.png"/>
+        </div>
+<!--        <div id="loginBlock" style="display: inline-block; padding-top: 1%; float: right; margin-right: 5% ">
+            <form id="loginForm">
+                <div id="userNameBox">
+                    <label id="userLogin" for="username">Användarnamn: </label>
+                    <input type="text" name="name" id="username" placeholder="användarnamn" required/>
+                </div>
+                <div id="passwordBox" style="padding-top: 2%; ">
+                    <label id="userPWD" for="pwd">Lösenord: </label>
+                    <input type="password" name="name" id="pwd" placeholder="lösenord" required/>
+                </div>
+                <div id="loginButton" style="float: right; padding-top: 2%">
+                    <button class="pure-button" type="button" onclick="loginUser()" >Logga in</button>
+                </div>
+            </form>
+        </div>-->
+    </div>
+
+
+
+    <div id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
+        <ul>
+            <li><a href="#" onclick="displayItems()">Alla</a></li>
+            <li><a href="#" onclick="displayItems('LIGHT_LAGER')">Lättöl</a></li>
+            <li><a href="#" onclick="displayItems('PORTER_AND_STOUT')">Porters och Stouts</a></li>
+            <li><a href="#" onclick="displayItems('ALE')">Ales</a></li>
+            <li><a href="#" onclick="displayItems('DARK_LAGER')">Mörka Lager</a></li>
+            <li><a href="#" onclick="displayItems('WHEAT_BEER')">Veteöl</a></li>
+            <li><a href="#" onclick="displayItems('MISC')">Diverse</a></li>
+        </ul>
+    </div>
+
+
+
+    <div id = Languagebuttons>
+        <input type="image" name="submit" value="submit" src="Swedish_icon.png" />
+        <input type="image" name="submit" value="submit" src="United-States-icon.png" onClick="setVisibility('HeaderSwedish', 'none');" />
+    </div>
+
+
+</div>
+
+<div id = Header_background>
+
+</div>
+
+
+<div id = Content>
+    <table id="beers">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+<div id = "Right_div">
+
+    <html>
+    <head lang="en">
+        <meta charset="UTF-8">
+
+        <script type="text/javascript" src="http://jscart.googlecode.com/svn/jscart.js"></script>
+        <script type="text/javascript">
+
+            simpleCart.currency = SEK;
+            simpleCart.cartHeaders = ["Name" , "Price", "Quantity", "Total" ];
+        </script>
+    </head>
+    <body>
+
+    <span class="simpleCart_total"></span> (<span class="simpleCart_quantity"></span> items) <br />
+    <a href="javascript:;" class="simpleCart_empty">Empty Cart</a> <a href="#" class="viewcart">Viewcart</a>
+
+    <div class="simpleCart_items" ></div>
+    <div style="clear:left"></div>
+
+
+    SubTotal: <span class="simpleCart_total"></span> <br />
+
+    Final Total: <span class="simpleCart_finalTotal"></span><br />
+    <!--<a href="#" class="simpleCart_checkout">checkout</a>-->
+
+    </body>
+    </html>
+
+</div>
+
+
+<script type="text/javascript" src="js/vendor/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/vendor/lodash.min.js"></script>
+<script type="text/javascript" src="js/filter.js"></script>
+<script type="text/javascript" src="js/globals.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/inventory.js"></script>
+<script type="text/javascript" src="js/view.js"></script>
+<script type="text/javascript" src="js/viewcache.js"></script>
+<script type="text/javascript" src="js/user.js"></script>
+<script type="text/javascript" src="js/userlist.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>
