@@ -15,7 +15,7 @@ function loginUser(){
         var employeeHTMLString = "employee.html?user=" + userName;
         window.location.href = employeeHTMLString;
     } else {
-        userID = document.createTextNode("Customer: " + user.firstName + " " + user.lastName);
+        userID = document.createTextNode("Customer: " + user.firstName + " " + user.lastName + " " );
         userTabAmount = document.createTextNode("Current Tab: " + user.assets);
 
         /* create and style button */
