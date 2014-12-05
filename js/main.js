@@ -19,12 +19,14 @@ function loginUser(){
         var customerInfoBlock = document.getElementById('customerInfo');
         var customerName = document.getElementById('customerName');
         var customerTab = document.getElementById('customerTab');
+        var shoppingCart = document.getElementById('shoppingCart');
 
         customerName.innerHTML = userID;
         customerTab.innerHTML = userTabAmount;
 
         customerLoginBlock.style.display = 'none';
         customerInfoBlock.style.display = 'block';
+        shoppingCart.style.display = 'block';
     }
 }
 
@@ -36,21 +38,10 @@ function employeePageLoadUserInfo(){
     var url = window.location.href;
     var userName = url.split("=");
     var user = globals.userList.getUser(userName[1]);
+    var userID = "Employee: " + user.firstName + " " + user.lastName;
+    var employeeName = document.getElementById("employeeName");
+    employeeName.innerHTML = userID;
 
-    var userID = document.createTextNode("Employee: " + user.firstName + " " + user.lastName);
-    /* create and style button */
-    var logOutButton = document.createElement("BUTTON");
-    logOutButton.setAttribute('type', 'button');
-    logOutButton.style.height = "25px";
-    logOutButton.style.width = "100px";
-    logOutButton.innerHTML = "Logout";
-    logOutButton.onclick = logOut;
-
-    /* clear and update login block to contain customer info */
-    var infoToReplace = document.getElementById("infoAndLogout");
-    infoToReplace.innerHTML = '';
-    infoToReplace.appendChild(userID);
-    infoToReplace.appendChild(logOutButton);
 }
 
 function createNewCustomer(){
@@ -80,7 +71,7 @@ function addCustomer(){
         var newCustomerFields = document.getElementById("createNewCustomer");
         var tabTable = document.getElementById("tabs");
         tabTable.style.display = 'block';
-        customerInfoDiv.style.display = 'inline-block';
+        customerInfoDiv.style.display = 'block';
         newCustomerFields.style.display = 'none';
     }
 }
