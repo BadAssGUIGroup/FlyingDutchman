@@ -1,6 +1,7 @@
 /* Populate namespace */
 
 loadGlobals();
+displayItems('ALL');
 
 function loginUser(){
     var userName = document.getElementById("username").value;
