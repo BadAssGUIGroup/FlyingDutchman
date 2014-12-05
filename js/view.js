@@ -46,7 +46,7 @@ View.prototype.display = function(tableId) {
     var headerRow = header.insertRow();
     var headerRowStr = "";
     _(this.fields).forEach(function (key) {
-        headerRowStr += "<th>" + headerNames[key] + "</th>";
+        headerRowStr += "<th>" + globals.headerNames[key] + "</th>";
     });
     headerRow.innerHTML = headerRowStr;
 

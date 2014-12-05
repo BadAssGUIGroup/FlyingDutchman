@@ -22,3 +22,13 @@ ViewCache.prototype.refreshAll = function () {
         view.refresh(this.data);
     }, this);
 };
+
+ViewCache.prototype.toJSON = function () {
+    return {'data': this.data, 'views': this.views};
+};
+
+ViewCache.prototype.loadJSON = function (json) {
+    this.data = json['data'];
+    this.views = json['views'];
+};
+

@@ -21,13 +21,13 @@ Inventory.prototype.refresh = function(callback) {
     this.refreshing = true;
     var that = this;
 
-    request(admin.name, admin.password, actions.getInventory, function (data) {
+    request(globals.admin.name, globals.admin.password, globals.actions.getInventory, function (data) {
         that.inventory = data.payload;
 
         var counter = that.inventory.length;
 
         _(that.inventory).forEach(function (beer) {
-            request(admin.name, admin.password, actions.getBeerData, function(data) {
+            request(globals.admin.name, globals.admin.password, globals.actions.getBeerData, function(data) {
                 var beerData = data.payload[0];
 
                 if (beerData != undefined)
@@ -81,3 +81,13 @@ Inventory.prototype.getView = function(fields, field, value) {
     }) : this.getBeers();
     return new View(beers, fields);
 };
+
+Inventory.prototype.toJSON = function () {
+    return {'inventory': this.inventory, 'beers': this.beers};
+};
+
+Inventory.prototype.loadJSON = function (json) {
+    this.inventory = json['inventory'];
+    this.beers = json['beers'];
+};
+
