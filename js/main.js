@@ -102,4 +102,5 @@ function loadGlobals() {
     globals.inventory.loadJSON(storage.get("inventory"));
     globals.userList.loadJSON(storage.get("userList"));
     globals.viewCache.loadJSON(storage.get("viewCache"));
+    globals.viewCache.refreshAll();
 }
