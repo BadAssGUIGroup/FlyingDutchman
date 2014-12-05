@@ -1,33 +1,27 @@
 function loginUser(){
     var userName = document.getElementById("username").value;
     var passWord = document.getElementById("pwd").value;
-    var userID;
-    var userTabAmount;
-
     var user = userList.getUser(userName);
+
     if (user == null || userName != passWord) {
         alert("Incorrect username or password");
     } else if(user.isEmployee()){
         var employeeHTMLString = "employee.html?user=" + userName;
         window.location.href = employeeHTMLString;
     } else {
-        userID = document.createTextNode("Customer: " + user.firstName + " " + user.lastName);
-        userTabAmount = document.createTextNode("Current Tab: " + user.assets);
+        var userID = "Customer: " + user.firstName + " " + user.lastName;
+        var userTabAmount = "Current Tab: " + user.assets;
+        var customerLoginBlock = document.getElementById('loginBlock');
+        var customerInfoBlock = document.getElementById('customerInfo');
+        var customerName = document.getElementById('customerName');
+        var customerTab = document.getElementById('customerTab');
 
-        /* create and style button */
-        var logOutButton = document.createElement("BUTTON");
-        logOutButton.setAttribute('type', 'button');
-        logOutButton.style.height = "25px";
-        logOutButton.style.width = "100px";
-        logOutButton.innerHTML = "Logout";
-        logOutButton.onclick = logOut;
+        customerName.innerHTML = userID;
+        customerTab.innerHTML = userTabAmount;
 
-        /* clear and update login block to contain customer info */
-        var infoToReplace = document.getElementById("loginBlock");
-        infoToReplace.innerHTML = '';
-        infoToReplace.appendChild(userID);
-        infoToReplace.appendChild(userTabAmount);
-        infoToReplace.appendChild(logOutButton);
+        customerLoginBlock.style.display = 'none';
+        customerInfoBlock.style.display = 'block';
+
     }
 }
 
@@ -87,7 +81,7 @@ function addCustomer(){
     }
 }
 
-function editTab(){
+function chargeCustomer(){
 
 }
 
@@ -119,10 +113,15 @@ function init() {
 }
 
 function displayItems(item, sortField) {
+    if (item == 'Update') {
+        /*allow editing of "Inventory" fields, and sync to database when "Save Changes" is clicked*/
+        alert("Updating Inventory not Supported Yet!!!");
+    } else {
     view = (item != null) ? viewCache.getView(item) : viewCache.getView("ALL");
     if (sortField != null)
         view.sort(sortField);
     view.display('beers');
+    }
 }
 
 window.onload = function() {

@@ -36,9 +36,9 @@
             <li><a href="#" onclick="displayItems('DARK_LAGER')">Dark Lagers</a></li>
             <li><a href="#" onclick="displayItems('WHEAT_BEER')">Wheat Beers</a></li>
             <li><a href="#" onclick="displayItems('MISC')">Misc</a></li>
+            <li><a href="#" onclick="displayItems('Update')">Update Inventory</a></li>
         </ul>
     </div>
-
 </div>
 
 
@@ -71,11 +71,11 @@
         <input type="text" name="name" id="pwd" placeholder="password" required/>
         <label id="pwdLabelConfirm" for="pwdConfirm" style="display: block; margin-top: 5%">Confirm Password: </label>
         <input type="text" name="name" id="pwdConfirm" placeholder="password" required/>
-        <button class="pure-button" type="button" style="margin-top: 5%" onclick="addCustomer()" >Create</button>
+        <button class="pure-button" type="button" style="margin-top: 5%; display: block" onclick="addCustomer()" >Create</button>
     </div>
     <div id="editOrAddCustomerInfo">
-        <button class="pure-button" type="button" style="display: inline" onclick="editTab()" >Edit Tab</button>
-        <button class="pure-button" type="button" style="display: inline" onclick="createNewCustomer()" >New Customer</button>
+        <button class="pure-button" type="button" style="display: inline" onclick="chargeCustomer()" >Charge</button>
+        <button class="pure-button" type="button" style="display: inline; margin-left: 2%" onclick="createNewCustomer()" >New Customer</button>
     </div>
 </div>
 
