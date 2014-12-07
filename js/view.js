@@ -11,6 +11,15 @@ function View(data, fields, filter, sortField, sortFieldIsNumber) {
     this.viewData = null;
 }
 
+View.prototype.set = function (view) {
+    this.fields = view.fields;
+    this.filter = view.filter;
+    this.sortField = view.sortField;
+    this.sortFieldIsNumber = view.sortFieldIsNumber;
+    this.data = view.data;
+    this.viewData = view.viewData;
+};
+
 View.prototype.refresh = function(data) {
     if (data != null)
         this.data = data;

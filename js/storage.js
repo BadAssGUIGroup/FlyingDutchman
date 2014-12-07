@@ -12,8 +12,9 @@ var storage = {
 
     get: function (key) {
         var value = window.localStorage.getItem(key);
-
-        if (value[0] === "{") {
+        if (value == null)
+            return;
+        else if (value[0] === "{") {
             value = JSON.parse(value);
         }
         return value;
