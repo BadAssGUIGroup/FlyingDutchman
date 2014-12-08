@@ -34,10 +34,9 @@ var swedish = {
     'userLogin': "Användarnamn",
     'userPWD': "Lösenord &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;",
 
-    'button_login': "Logga in",
-
-
+    'button_login': "Logga in"
 };
+
 
 var english = {
     'button_all': "All",
@@ -51,10 +50,7 @@ var english = {
     'userLogin': "Username",
     'userPWD': "Password",
 
-    'button_login': "Login",
-
-
-
+    'button_login': "Login"
 
 };
 
