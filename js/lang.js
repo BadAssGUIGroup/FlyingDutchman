@@ -23,11 +23,41 @@ LanguageManager.prototype.getString = function (language, key) {
 var languageManager = new LanguageManager();
 
 var swedish = {
-    'button_lb': "Ljus lager"
+    'button_all': "Alla",
+    'button_lb': "Ljusa öl",
+    'button_ps': "Porters och Stouts",
+    'button_ms': "Diverse",
+    'button_dl': "Mörka öl",
+    'button_ale': "Ale",
+    'button_wb': "Veteöl",
+
+    'userLogin': "Användarnamn",
+    'userPWD': "Lösenord",
+
+    'button_login': "Logga in",
+
+    'customerName': "Kund: <>"
+
 };
 
 var english = {
-    'button_lb': "Light Beers"
+    'button_all': "All",
+    'button_lb': "Light Beers",
+    'button_ps': "Porters and Stouts",
+    'button_ms': "Misc",
+    'button_dl': "Dark lager",
+    'button_ale': "Ale",
+    'button_wb': "Wheat beers",
+
+    'userLogin': "Username",
+    'userPWD': "Password",
+
+    'button_login': "Login",
+
+    'customerName': "Customer: <>"
+
+
+
 };
 
 languageManager.addLanguage("swedish", swedish);

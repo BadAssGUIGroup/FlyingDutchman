@@ -7,14 +7,22 @@ function loginUser(){
     var userName = document.getElementById("username").value;
     var passWord = document.getElementById("pwd").value;
     var user = globals.userList.getUser(userName);
+    var userId;
 
     if (user == null || userName != passWord) {
         alert("Incorrect username or password");
     } else if(user.isEmployee()){
-        var employeeHTMLString = "employee.html?user=" + userName;
-        window.location.href = employeeHTMLString;
+        userId = "Employee: " + user.firstName + " " + user.lastName;
+        var customerLoginBlock = document.getElementById('loginBlock');
+        var employeeInfoAndLogout = document.getElementById("employeeInfoAndLogout");
+        var employeeName = document.getElementById("employeeName");
+        var employeeInfoTable = document.getElementById("employeeTabInfo");
+        employeeName.innerHTML = userId;
+        employeeInfoAndLogout.style.display = 'block';
+        employeeInfoTable.style.display = 'inline-block';
+        customerLoginBlock.style.display = 'none';
     } else {
-        var userID = "Customer: " + user.firstName + " " + user.lastName;
+        userId = "Customer: " + user.firstName + " " + user.lastName;
         var userTabAmount = "Current Tab: " + user.assets;
         var customerLoginBlock = document.getElementById('loginBlock');
         var customerInfoBlock = document.getElementById('customerInfo');
@@ -22,7 +30,7 @@ function loginUser(){
         var customerTab = document.getElementById('customerTab');
         var shoppingCart = document.getElementById('shoppingCart');
 
-        customerName.innerHTML = userID;
+        customerName.innerHTML = userId;
         customerTab.innerHTML = userTabAmount;
 
         customerLoginBlock.style.display = 'none';
@@ -35,15 +43,6 @@ function logOut(){
     window.location.href = "Homepage.html";
 }
 
-function employeePageLoadUserInfo(){
-    var url = window.location.href;
-    var userName = url.split("=");
-    var user = globals.userList.getUser(userName[1]);
-    var userID = "Employee: " + user.firstName + " " + user.lastName;
-    var employeeName = document.getElementById("employeeName");
-    employeeName.innerHTML = userID;
-
-}
 
 function createNewCustomer(){
     var customerInfoDiv = document.getElementById("editOrAddCustomerInfo");
@@ -68,6 +67,7 @@ function addCustomer(){
         alert("Password and Confirm Password Do Not Match");
     } else {
         /*add code here to send info to the database*/
+
         var customerInfoDiv = document.getElementById("editOrAddCustomerInfo");
         var newCustomerFields = document.getElementById("createNewCustomer");
         var tabTable = document.getElementById("tabs");
