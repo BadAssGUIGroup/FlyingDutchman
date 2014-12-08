@@ -4,8 +4,8 @@ loadGlobals();
 displayItems('ALL');
 
 function loginUser(){
-    var userName = document.getElementById("username").value;
-    var passWord = document.getElementById("pwd").value;
+    var userName = document.getElementById("loginUsername").value;
+    var passWord = document.getElementById("loginPwd").value;
     var user = globals.userList.getUser(userName);
     var userId;
 
