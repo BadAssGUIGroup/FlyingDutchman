@@ -33,8 +33,12 @@ var swedish = {
 
     'userLogin': "Användarnamn",
     'userPWD': "Lösenord",
-    'username': "användarnamn",
-    'pwd': "lösenord"
+
+    'button_login': "Logga in",
+
+    'button_name': "Namn"
+
+
 };
 
 var english = {
@@ -48,8 +52,12 @@ var english = {
 
     'userLogin': "Username",
     'userPWD': "Password",
-    'username': "username",
-    'pwd': "password"
+
+    'button_login': "Login",
+
+    'button_name': "Name"
+
+
 
 };
 
