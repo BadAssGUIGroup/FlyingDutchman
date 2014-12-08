@@ -70,12 +70,11 @@ View.prototype.display = function(tableId) {
             cellCount++;
         });
         row.onclick = function() {
+            globals.shoppingCart.addItem(beer['beer_id'], beer['namn'], beer['pub_price']);
             //alert("Beer Id: " + beer['beer_id']);
-            if (confirm("Add Beer to Cart") == true){
-                var name = "name=" + beer['namn'];
-                globals.shoppingCart.addItem(beer['beer_id'], beer['namn'], beer['pub_price']);
-                //simpleCart.add(name,'price=' + beer['pub_price'], 'quantity=1');
-            }
+            //if (confirm("Add Beer to Cart") == true){
+            //    var name = "name=" + beer['namn'];
+            //}
         };
         rowCount++;
     });
