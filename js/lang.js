@@ -1,3 +1,4 @@
+
 function LanguageManager() {
     this.languages = {};
 }
