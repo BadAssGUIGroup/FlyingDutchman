@@ -182,16 +182,18 @@
 }
 
 #cart_items thead {
-
+    border-bottom: 2px solid #999;
 }
 
 #cart_items tfoot {
-
+    font-weight: bold;
+    border: 2px solid #999;
+    margin-top: 2px;
 }
 
 #cart_items th, td {
     border-bottom: 0px;
-    width: 15%;
-    padding: 10px;
+    /*width: 5%;*/
+    padding: 8px;
     text-align: left;
 }
