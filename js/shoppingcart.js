@@ -19,7 +19,7 @@ function ShoppingCart(id, currency) {
     this.redoStack = [];
 }
 
-ShoppingCart.prototype.addItem = function (id, name, price, quantity) {
+ShoppingCart.prototype.addItem = function (id, name, price, quantity, redo) {
     var item = this.items[id];
     var quantity = (quantity == null) ? 1 : quantity;
     if (item == null) {
@@ -38,16 +38,18 @@ ShoppingCart.prototype.addItem = function (id, name, price, quantity) {
         'content': {'id': id, 'name': name, 'price': price, 'quantity': quantity}
     });
 
-    this.redoStack.clear();
+    if (redo == undefined)
+        this.redoStack = [];
 };
 
-ShoppingCart.prototype.clear = function () {
+ShoppingCart.prototype.clear = function (redo) {
     this.actionStack.push({
         'action': cartActions['CLEAR'],
         'content': {'items': this.items, 'totalQuantity': this.totalQuantity, 'total': this.total}
     });
 
-    this.redoStack.clear();
+    if (redo == undefined)
+        this.redoStack = [];
 
     this.items = {};
     this.totalQuantity = 0;
@@ -96,10 +98,10 @@ ShoppingCart.prototype.redo = function() {
 
     switch(actionType) {
         case cartActions['ADD_ITEM']:
-            this.addItem(content.id, content.name, content.price, content.quantity);
+            this.addItem(content.id, content.name, content.price, content.quantity, true);
             break;
         case cartActions['CLEAR']:
-            this.clear();
+            this.clear(true);
             break;
         default:
     }
