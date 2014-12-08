@@ -57,7 +57,7 @@
     <div id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
         <ul>
             <li><a href="#" onclick="displayItems()">All</a></li>
-            <li><a href="#" onclick="displayItems('LIGHT_LAGER')">Light Beers</a></li>
+            <li><a href="#" onclick="displayItems('LIGHT_LAGER')" id = "button_lb">Light Beers</a></li>
             <li><a href="#" onclick="displayItems('PORTER_AND_STOUT')">Porters and Stouts</a></li>
             <li><a href="#" onclick="displayItems('ALE')">Ales</a></li>
             <li><a href="#" onclick="displayItems('DARK_LAGER')">Dark Lagers</a></li>
@@ -68,8 +68,8 @@
 
 
     <div id = Languagebuttons>
-        <input type="image" name="submit" value="submit" src="Swedish_icon.png" onClick = "SwedishLanguage();" />
-        <input type="image" name="submit" value="submit" src="United-States-icon.png" />
+        <input type="image" name="submit" value="submit" src="Swedish_icon.png" onClick = "languageManager.setLanguage('swedish')"/>
+        <input type="image" name="submit" value="submit" src="United-States-icon.png" onClick = "languageManager.setLanguage('english')"/>
     </div>
 
 
@@ -131,6 +131,7 @@
 <script type="text/javascript" src="js/storage.js"></script>
 <script type="text/javascript" src="js/globals.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/lang.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
 </body>
