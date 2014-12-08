@@ -173,3 +173,22 @@
     float: right;
 
 }
+
+#cart_items {
+    color: white;
+}
+
+#cart_items thead {
+
+}
+
+#cart_items tfoot {
+
+}
+
+#cart_items th, td {
+    border-bottom: 0px;
+    width: 15%;
+    padding: 10px;
+    text-align: left;
+}
