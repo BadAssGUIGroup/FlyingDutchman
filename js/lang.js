@@ -27,7 +27,7 @@ var swedish = {
     'button_lb': "Ljusa öl",
     'button_ps': "Porters och Stouts",
     'button_ms': "Diverse",
-    'button_db': "Mörka öl",
+    'button_dl': "Mörka öl",
     'button_ale': "Ale",
     'button_wb': "Veteöl",
 
@@ -36,8 +36,7 @@ var swedish = {
 
     'button_login': "Logga in",
 
-    'button_name': "Namn"
-
+    'customerName': "Kund: <>"
 
 };
 
@@ -46,7 +45,7 @@ var english = {
     'button_lb': "Light Beers",
     'button_ps': "Porters and Stouts",
     'button_ms': "Misc",
-    'button_db': "Dark lager",
+    'button_dl': "Dark lager",
     'button_ale': "Ale",
     'button_wb': "Wheat beers",
 
@@ -55,13 +54,11 @@ var english = {
 
     'button_login': "Login",
 
-    'button_name': "Name"
+    'customerName': "Customer: <>"
 
 
 
 };
-
-
 
 languageManager.addLanguage("swedish", swedish);
 languageManager.addLanguage("english", english);
