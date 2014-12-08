@@ -50,6 +50,14 @@
             <p id="customerTab">Tab <></p>
             <button class="pure-button" type="button" style="float: right; padding-top: 2%" onclick="logOut()" >Logout</button>
         </div>
+        <div id="employeeInfoAndLogout" style="display: none; float: right; margin-right: 2%">
+            <div id="employeeInfo">
+                <p id="employeeName">Employee ID: <> Name: <></p>
+            </div>
+            <div id="logOutButton" style="float: right">
+                <button class="pure-button" type="button" onclick="logOut()">Logout</button>
+            </div>
+        </div>
     </div>
 
 
@@ -85,6 +93,31 @@
     </table>
 </div>
 
+
+<div id = "employeeTabInfo">
+    <p style="text-align: center; margin-top: 0%">Customer Tabs:</p>
+    <table sortable id="tabs">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+    <div id="createNewCustomer" style="display: none">
+        <label id="firstNameLabel" for="firstName" style="display: block">FirstName: </label>
+        <input type="text" name="name" id="firstName" placeholder="First Name" required/>
+        <label id="surnameLabel" for="surname" style="display: block; margin-top: 5%">Surname: </label>
+        <input type="text" name="name" id="surname" placeholder="Surname" required/>
+        <label id="usernameLabel" for="username" style="display: block; margin-top: 5%">Username: </label>
+        <input type="text" name="name" id="username" placeholder="username" required/>
+        <label id="pwdLabel" for="pwd" style="display: block; margin-top: 5%">Password: </label>
+        <input type="text" name="name" id="pwd" placeholder="password" required/>
+        <label id="pwdLabelConfirm" for="pwdConfirm" style="display: block; margin-top: 5%">Confirm Password: </label>
+        <input type="text" name="name" id="pwdConfirm" placeholder="password" required/>
+        <button class="pure-button" type="button" style="margin-top: 5%; display: block" onclick="addCustomer()" >Create</button>
+    </div>
+    <div id="editOrAddCustomerInfo">
+        <button class="pure-button" type="button" style="display: inline" onclick="chargeCustomer()" >Charge</button>
+        <button class="pure-button" type="button" style="display: inline; margin-left: 2%" onclick="createNewCustomer()" >New Customer</button>
+    </div>
+</div>
 
 <div id = "shoppingCart">
 

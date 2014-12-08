@@ -75,7 +75,7 @@
 
 #employeeTabInfo {
 
-    display: inline-block;
+    display: none;
 
     float: right;
     position: fixed;
