@@ -36,7 +36,6 @@ var swedish = {
 
     'button_login': "Logga in",
 
-    'customerName': "Kund: <>"
 
 };
 
@@ -54,7 +53,6 @@ var english = {
 
     'button_login': "Login",
 
-    'customerName': "Customer: <>"
 
 
 
