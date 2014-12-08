@@ -14,15 +14,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
 </head>
-
 <body>
-
-
-<script language="JavaScript">
-    function SwedishLanguage()  {
-    }
-</script>
-
 
 <div id="Header">
 
@@ -45,6 +37,8 @@
                 </div>
             </form>
         </div>
+
+
         <div id="customerInfo" style="display: none; padding-top: 1%; float: right;  margin-right: 5%">
             <p id="customerName">Customer: <></p>
             <p id="customerTab">Tab <></p>
@@ -64,20 +58,20 @@
 
     <div id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
         <ul>
-            <li><a href="#" onclick="displayItems()">All</a></li>
-            <li><a href="#" onclick="displayItems('LIGHT_LAGER')">Light Beers</a></li>
-            <li><a href="#" onclick="displayItems('PORTER_AND_STOUT')">Porters and Stouts</a></li>
-            <li><a href="#" onclick="displayItems('ALE')">Ales</a></li>
-            <li><a href="#" onclick="displayItems('DARK_LAGER')">Dark Lagers</a></li>
-            <li><a href="#" onclick="displayItems('WHEAT_BEER')">Wheat Beers</a></li>
-            <li><a href="#" onclick="displayItems('MISC')">Misc</a></li>
+            <li><a href="#" onclick="displayItems()" id = "button_all" >All</a></li>
+            <li><a href="#" onclick="displayItems('LIGHT_LAGER')" id = "button_lb">Light Beers</a></li>
+            <li><a href="#" onclick="displayItems('PORTER_AND_STOUT')" id = "button_ps">Porters and Stouts</a></li>
+            <li><a href="#" onclick="displayItems('ALE')" id = "button_ale" >Ales</a></li>
+            <li><a href="#" onclick="displayItems('DARK_LAGER')" id = "button_dl" >Dark Lagers</a></li>
+            <li><a href="#" onclick="displayItems('WHEAT_BEER')" id = "button_wb" >Wheat Beers</a></li>
+            <li><a href="#" onclick="displayItems('MISC')" id = "button_ms" >Misc</a></li>
         </ul>
     </div>
 
 
     <div id = Languagebuttons>
-        <input type="image" name="submit" value="submit" src="Swedish_icon.png" onClick = "SwedishLanguage();" />
-        <input type="image" name="submit" value="submit" src="United-States-icon.png" />
+        <input type="image" name="submit" value="submit" src="Swedish_icon.png" onClick = "languageManager.setLanguage('swedish')"/>
+        <input type="image" name="submit" value="submit" src="United-States-icon.png" onClick = "languageManager.setLanguage('english')"/>
     </div>
 
 
@@ -93,6 +87,13 @@
     </table>
 </div>
 
+<div id = RightDiv>
+    <span style="color: white;">Beers of the week will be displayed here!</span>
+    <br>
+    <br>
+    <br>
+
+</div>
 
 <div id = "employeeTabInfo">
     <p style="text-align: center; margin-top: 0%">Customer Tabs:</p>
@@ -164,6 +165,7 @@
 <script type="text/javascript" src="js/storage.js"></script>
 <script type="text/javascript" src="js/globals.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/lang.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
 </body>
