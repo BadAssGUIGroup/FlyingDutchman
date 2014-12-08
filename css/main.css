@@ -78,7 +78,7 @@
     display: none;
 
     float: right;
-    position: fixed;
+
 
     border: 1px solid black;
     background-color: #8E7777;
@@ -93,15 +93,15 @@
 
     margin-top: 10px;
     margin-left: 78%;
-    margin-right: 25px;
+    margin-right: 1.8%;
 
 }
 
 #beersOfTheWeek {
 
     float: right;
-    position: fixed;
-    
+
+
     border: 1px solid black;
     background-color: #8E7777;
 
@@ -114,8 +114,8 @@
     padding-bottom: 10px;
 
     margin-top: 250px;
-    margin-left: 77%;
-    margin-right: 25px;
+
+    margin-right: 1.8%;
 
 }
 
