@@ -72,7 +72,7 @@
 </div>
 
 
-<div id = Content>
+<div id = Content>2
     <table id="beers">
         <thead></thead>
         <tbody></tbody>
@@ -88,34 +88,51 @@
 </div>
 
 <div id = "shoppingCart">
+    <table id = "cart_items">
+        <thead>
+        <tr>
+            <th id = "cart_items_name">Name</th>
+            <th id = "cart_items_quantity">Quantity</th>
+            <th id = "cart_items_total">Total</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+        <tr>
+            <td id ="cart_total_string">Final Total</td>
+            <td id ="cart_total_quantity"></td>
+            <td id="cart_total"></td>
+        </tr>
+        </tfoot>
+    </table>
 
-    <html>
-    <head lang="en">
-        <meta charset="UTF-8">
+    <!--<html>-->
+    <!--<head lang="en">-->
+        <!--<meta charset="UTF-8">-->
 
-        <script type="text/javascript" src="http://jscart.googlecode.com/svn/jscart.js"></script>
-        <script type="text/javascript">
+        <!--<script type="text/javascript" src="http://jscart.googlecode.com/svn/jscart.js"></script>-->
+        <!--<script type="text/javascript">-->
 
-            simpleCart.currency = SEK;
-            simpleCart.cartHeaders = ["Name" , "Price", "Quantity", "Total" ];
-        </script>
-    </head>
-    <body>
+            <!--simpleCart.currency = SEK;-->
+            <!--simpleCart.cartHeaders = ["Name" , "Price", "Quantity", "Total" ];-->
+        <!--</script>-->
+    <!--</head>-->
+    <!--<body>-->
 
-    <span class="simpleCart_total"></span> (<span class="simpleCart_quantity"></span> items) <br />
-    <a href="javascript:;" class="simpleCart_empty">Empty Cart</a> <a href="#" class="viewcart">Viewcart</a>
+    <!--<span class="simpleCart_total"></span> (<span class="simpleCart_quantity"></span> items) <br />-->
+    <!--<a href="javascript:;" class="simpleCart_empty">Empty Cart</a> <a href="#" class="viewcart">Viewcart</a>-->
 
-    <div class="simpleCart_items" ></div>
-    <div style="clear:left"></div>
+    <!--<div class="simpleCart_items" ></div>-->
+    <!--<div style="clear:left"></div>-->
 
 
-    SubTotal: <span class="simpleCart_total"></span> <br />
+    <!--SubTotal: <span class="simpleCart_total"></span> <br />-->
 
-    Final Total: <span class="simpleCart_finalTotal"></span><br />
-    <!--<a href="#" class="simpleCart_checkout">checkout</a>-->
+    <!--Final Total: <span class="simpleCart_finalTotal"></span><br />-->
+    <!--&lt;!&ndash;<a href="#" class="simpleCart_checkout">checkout</a>&ndash;&gt;-->
 
-    </body>
-    </html>
+    <!--</body>-->
+    <!--</html>-->
 
 </div>
 
@@ -130,6 +147,7 @@
 <script type="text/javascript" src="js/user.js"></script>
 <script type="text/javascript" src="js/userlist.js"></script>
 <script type="text/javascript" src="js/storage.js"></script>
+<script type="text/javascript" src="js/shoppingcart.js"></script>
 <script type="text/javascript" src="js/globals.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/lang.js"></script>

@@ -73,7 +73,8 @@ View.prototype.display = function(tableId) {
             //alert("Beer Id: " + beer['beer_id']);
             if (confirm("Add Beer to Cart") == true){
                 var name = "name=" + beer['namn'];
-                simpleCart.add(name,'price=' + beer['pub_price'], 'quantity=1');
+                globals.shoppingCart.addItem(beer['beer_id'], beer['namn'], beer['pub_price']);
+                //simpleCart.add(name,'price=' + beer['pub_price'], 'quantity=1');
             }
         };
         rowCount++;

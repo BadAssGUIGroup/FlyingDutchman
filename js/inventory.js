@@ -14,6 +14,12 @@ Inventory.prototype.clear = function() {
 
 Inventory.prototype.addBeer = function(beer, beerData) {
     this.beers[beer['beer_id']] = _.assign(beer, beerData);
+    var beerObject = this.beers[beer['beer_id']];
+    _.forEach(beerObject, function (value, key) {
+        if (!isNaN(value)) {
+            beerObject[key] = parseInt(value);
+        }
+    });
 };
 
 Inventory.prototype.refresh = function(callback) {
