@@ -33,7 +33,7 @@
                     <input type="password" name="name" id="pwd" placeholder="password" required/>
                 </div>
                 <div id="loginButton" style="float: right; padding-top: 2%">
-                    <button class="pure-button" type="button" onclick="loginUser()" >Login</button>
+                    <button class="pure-button" type="button" onclick="loginUser()" id = "button_login" >Login</button>
                 </div>
             </form>
         </div>
@@ -122,6 +122,8 @@
         <html>
         <head lang="en">
             <meta charset="UTF-8">
+            simpleCart.currency = SEK;
+            simpleCart.cartHeaders = ["Name", "Price", "Quantity", "Total" ];
 
             <script type="text/javascript" src="http://jscart.googlecode.com/svn/jscart.js"></script>
             <script type="text/javascript">
