@@ -27,11 +27,13 @@ ShoppingCart.prototype.addItem = function (id, name, price, quantity) {
 
 ShoppingCart.prototype.clear = function () {
     this.items = {};
+    this.totalQuantity = 0;
     this.total = 0;
+    this.refreshDisplay();
 };
 
 ShoppingCart.prototype.checkout = function() {
-
+    alert("pfft!");
 };
 
 ShoppingCart.prototype.refreshDisplay = function() {
