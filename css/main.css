@@ -68,7 +68,7 @@
 
     margin-top: 250px;
     margin-left: 77%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-right: 25px;
 
 }
@@ -91,12 +91,9 @@
     padding-top: 10px;
     padding-bottom: 10px;
 
-    margin-top: 310px;
-    right: 1.35%;
-    /*margin-top: 10px;
-    margin-left: 78%;
-    margin-right: 1.8%;*/
+    margin-top: 315px;
 
+    right: 1.35%;
 }
 
 #beersOfTheWeek {
