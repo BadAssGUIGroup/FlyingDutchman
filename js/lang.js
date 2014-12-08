@@ -1,3 +1,4 @@
+
 function LanguageManager() {
     this.languages = {};
 }
@@ -32,12 +33,11 @@ var swedish = {
     'button_wb': "Veteöl",
 
     'userLogin': "Användarnamn",
-    'userPWD': "Lösenord",
+    'userPWD': "Lösenord &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;",
 
-    'button_login': "Logga in",
-
-
+    'button_login': "Logga in"
 };
+
 
 var english = {
     'button_all': "All",
@@ -51,10 +51,7 @@ var english = {
     'userLogin': "Username",
     'userPWD': "Password",
 
-    'button_login': "Login",
-
-
-
+    'button_login': "Login"
 
 };
 

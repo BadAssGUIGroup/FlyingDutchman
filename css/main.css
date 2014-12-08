@@ -59,14 +59,14 @@
     background-color: #8E7777;
 
     width: 20%;
-    overflow: auto;
+    overflow: scroll;
 
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
 
-    margin-top: 250px;
+    margin-top: 315px;
     margin-left: 77%;
     margin-bottom: 20px;
     margin-right: 25px;
