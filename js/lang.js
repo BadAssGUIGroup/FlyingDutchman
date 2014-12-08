@@ -32,7 +32,7 @@ var swedish = {
     'button_wb': "Veteöl",
 
     'userLogin': "Användarnamn",
-    'userPWD': "Lösenord",
+    'userPWD': "Lösenord &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;",
 
     'button_login': "Logga in",
 

@@ -59,7 +59,7 @@
     background-color: #8E7777;
 
     width: 20%;
-    overflow: auto;
+    overflow: scroll;
 
     padding-left: 10px;
     padding-right: 10px;
