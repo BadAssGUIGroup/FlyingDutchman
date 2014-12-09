@@ -3,12 +3,15 @@
 loadGlobals();
 displayItems('ALL');
 
+var gurka;
+
 function loginUser(){
     var userName = document.getElementById("loginUsername").value;
     var passWord = document.getElementById("loginPwd").value;
     var user = globals.userList.getUser(userName);
     var userId;
 
+    gurka = user;
     if (user == null || userName != passWord) {
         alert("Incorrect username or password");
     } else if(user.isEmployee()){

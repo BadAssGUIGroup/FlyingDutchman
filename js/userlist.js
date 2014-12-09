@@ -42,9 +42,7 @@ UserList.prototype.toJSON = function () {
 
 UserList.prototype.loadJSON = function (json) {
     this.userList = json['userList'];
-    this.users = json['users'];
-};
-
-UserList.prototype.addUser = function(username, firstName, lastName, password) {
-    var user = new User(username, firstName, lastName, password);
+    _.forEach(this.userList, function (user) {
+        this.users[user['username']] = new User(user['username'], user['first_name'], user['last_name'], user['assets']);
+    }, this);
 };
