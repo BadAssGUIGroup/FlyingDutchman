@@ -4,9 +4,19 @@
 
 function CanvasRenderer(context) {
     this.context = context;
+    this.canvas = context.canvas;
     this.width = context.canvas.width;
     this.height = context.canvas.height;
+    this.clearColor = "#000000";
 }
+
+CanvasRenderer.prototype.setClearColor = function(color) {
+    this.clearColor = color;
+};
+
+CanvasRenderer.prototype.setView = function(viewMatrix) {
+    this.context.setTransform(viewMatrix[0], -viewMatrix[1], viewMatrix[3], -viewMatrix[4], viewMatrix[6] + this.width/2, -viewMatrix[7] + this.height/2);
+};
 
 CanvasRenderer.prototype.initView = function(flip, x, y) {
     if (x != null)
@@ -21,11 +31,9 @@ CanvasRenderer.prototype.clear = function(color) {
     this.context.save();
     this.context.setTransform(1, 0, 0, 1, 0, 0);
     this.context.clearRect(0, 0, this.width, this.height);
-    if (color) {
-        this.context.fillStyle = color;
-        this.context.fillRect(0, 0, this.width, this.height);
-    }
-    this.context.restore();
+    this.context.fillStyle = color || this.clearColor;
+    this.context.fillRect(0, 0, this.width, this.height);
+    this.context.restore()
 };
 
 CanvasRenderer.prototype.scaleView = function(scale, pivot) {

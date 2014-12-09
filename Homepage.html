@@ -20,9 +20,9 @@
     <canvas id="canvas" width=600px height=150px></canvas>
     <div id="titleAndLogin">
         <div id="titleBlock" style="display: inline-block; padding-left: 3%;" >
-            <img src="logo2.png"/>
+            <img id="logo" style="pointer-events: none;" src="logo2.png"/>
         </div>
-        <div id="loginBlock" style="display: inline-block; padding-top: 1%; float: right;  margin-right: 5%">
+        <div id="loginBlock" style="display: inline-block; padding-top: 1%; float: right;  margin-right: 5%; pointer-events: all;">
             <form id="loginForm">
                 <div id="userNameBox">
                     <label id="userLogin" for="loginUsername">Username: </label>
@@ -38,14 +38,12 @@
             </form>
         </div>
 
-
-
-        <div id="customerInfo" style="display: none; padding-top: 1%; float: right;  margin-right: 5%">
+        <div id="customerInfo" style="display: none; padding-top: 1%; float: right;  margin-right: 5%; pointer-events: all">
             <p id="customerName">Customer: <></p>
             <p id="customerTab">Tab <></p>
             <button class="pure-button" type="button" style="float: right; padding-top: 2%" onclick="logOut()" >Logout</button>
         </div>
-        <div id="employeeInfoAndLogout" style="display: none; float: right; margin-right: 2%">
+        <div id="employeeInfoAndLogout" style="display: none; float: right; margin-right: 2%; pointer-events: all">
             <div id="employeeInfo">
                 <p id="employeeName">Employee ID: <> Name: <></p>
             </div>
@@ -153,6 +151,7 @@
 
 <script type="text/javascript" src="js/vendor/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/vendor/lodash.min.js"></script>
+<script type="text/javascript" src="js/vendor/gl-matrix-min.js"></script>
 <script type="text/javascript" src="js/filter.js"></script>
 <script type="text/javascript" src="js/utils.js"></script>
 <script type="text/javascript" src="js/inventory.js"></script>
@@ -163,15 +162,17 @@
 <script type="text/javascript" src="js/storage.js"></script>
 <script type="text/javascript" src="js/shoppingcart.js"></script>
 <script type="text/javascript" src="js/globals.js"></script>
+<script type="text/javascript" src="js/gfx/vector2.js"></script>
+<script type="text/javascript" src="js/gfx/vectors.js"></script>
+<script type="text/javascript" src="js/gfx/particles.js"></script>
+<script type="text/javascript" src="js/gfx/objectpool.js"></script>
+<script type="text/javascript" src="js/gfx/world.js"></script>
+<script type="text/javascript" src="js/gfx/color.js"></script>
+<script type="text/javascript" src="js/gfx/camera2d.js"></script>
+<script type="text/javascript" src="js/gfx/application.js"></script>
+<script type="text/javascript" src="js/gfx/canvasrenderer.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/lang.js"></script>
-<script type="text/javascript" src="js/phys/vector2.js"></script>
-<script type="text/javascript" src="js/phys/vectors.js"></script>
-<script type="text/javascript" src="js/phys/particles.js"></script>
-<script type="text/javascript" src="js/phys/world.js"></script>
-<script type="text/javascript" src="js/color.js"></script>
-<script type="text/javascript" src="js/canvasrenderer.js"></script>
-<script type="text/javascript" src="js/objectpool.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
 </body>

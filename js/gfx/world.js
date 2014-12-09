@@ -11,8 +11,8 @@ ForceField.prototype.getForce = function(particle, out) {
 };
 
 function World(x, y, width, height) {
-    this.min = (x) ? new Vector2(x, y) : null;
-    this.max = (x) ? new Vector2(x + width, y + height) : null;
+    this.min = (x != null) ? new Vector2(x, y) : null;
+    this.max = (x != null) ? new Vector2(x + width, y + height) : null;
 
     this.particles = [];
     this.forceFields = [];
@@ -20,7 +20,7 @@ function World(x, y, width, height) {
 
     this.force = new Vector2(0, 0);
     this.particlePool = new ObjectPool(function() {
-        return new Particle(new Vector2(0, 0), 1, new Color(1, 1, 1, 1), 2, new Vector2(0, 0));
+        return new Particle(new Vector2(0, 0), 1, new Color(0, 0, 0, 1), 2, new Vector2(0, 0));
         },
         function(particle) {
             particle.isDoomed = false;
@@ -29,6 +29,10 @@ function World(x, y, width, height) {
         1024
     );
 }
+
+World.prototype.allocateParticle = function() {
+    return this.particlePool.allocate();
+};
 
 World.prototype.addParticle = function(particle) {
     this.particles.push(particle);
@@ -60,7 +64,7 @@ World.prototype.update = function(dt) {
             else
                 particle.tickDoom(dt);
         }
-        if (!(this.x == null || particle.position.isContainedBy(this.min, this.max))) {
+        if (!(this.min == null || particle.position.isContainedBy(this.min, this.max))) {
             this.particlePool.release(particle);
             continue;
         }
