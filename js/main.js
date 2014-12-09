@@ -42,6 +42,11 @@ function loginUser(){
     }
 }
 
+function displayCart(){
+    var shoppingCart = document.getElementById('shoppingCart');
+    shoppingCart.style.display = 'block';
+}
+
 function logOut(){
     window.location.href = "Homepage.html";
 }
