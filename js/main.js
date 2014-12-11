@@ -31,7 +31,7 @@ function loginUser(){
         var customerInfoBlock = document.getElementById('customerInfo');
         var customerName = document.getElementById('customerName');
         var customerTab = document.getElementById('customerTab');
-        var shoppingCart = document.getElementById('shoppingCart');
+        var shoppingCart = document.getElementById('customerShoppingCart');
 
         customerName.innerHTML = userId;
         customerTab.innerHTML = userTabAmount;
