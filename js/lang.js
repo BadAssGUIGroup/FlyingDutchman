@@ -32,10 +32,11 @@ var swedish = {
     'button_ale': "Ale",
     'button_wb': "Veteöl",
 
-    'userLogin': "Användarnamn",
-    'userPWD': "Lösenord &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;",
+    'userLogin': "Användarnamn:",
+    'userPWD': "Lösenord:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
 
-    'button_login': "Logga in"
+    'button_login': "Logga in",
+    'button_updateInventory': "Uppdatera lager"
 };
 
 
@@ -48,10 +49,11 @@ var english = {
     'button_ale': "Ale",
     'button_wb': "Wheat beers",
 
-    'userLogin': "Username",
-    'userPWD': "Password",
+    'userLogin': "Username:",
+    'userPWD': "Password:&nbsp;",
 
-    'button_login': "Login"
+    'button_login': "Login",
+    'button_updateInventory': "Update inventory"
 
 };
 
