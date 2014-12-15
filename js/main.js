@@ -9,49 +9,46 @@ function loginUser(){
     var userName = document.getElementById("loginUsername").value;
     var passWord = document.getElementById("loginPwd").value;
     var user = globals.userList.getUser(userName);
-    var userId;
+    var userTag;
 
     gurka = user;
     if (user == null || userName != passWord) {
         alert("Incorrect username or password");
+        return;
     } else if(user.isEmployee()){
-        userId = "Employee: " + user.firstName + " " + user.lastName;
-        var customerLoginBlock = document.getElementById('loginBlock');
-        var employeeInfoAndLogout = document.getElementById("employeeInfoAndLogout");
-        var employeeName = document.getElementById("employeeName");
-        var employeeInfoTable = document.getElementById("employeeTabInfo");
-        var updateInventoryButton = document.getElementById("button_updateInventory");
+        userTag = "Employee: " + user.firstName + " " + user.lastName;
 
-        updateInventoryButton.style.display = 'block';
-        employeeName.innerHTML = userId;
-        employeeInfoAndLogout.style.display = 'block';
-        employeeInfoTable.style.display = 'inline-block';
-        customerLoginBlock.style.display = 'none';
+        $("#employeeInfoAndLogout").show();
+        $("#employeeName").html(userTag);
+        $("#button_updateInventory").show();
+        $("#employeeTabInfo").show();
     } else {
-        userId = "Customer: " + user.firstName + " " + user.lastName;
+        userTag = "Customer: " + user.firstName + " " + user.lastName;
         var userTabAmount = "Current Tab: " + user.assets;
-        var customerLoginBlock = document.getElementById('loginBlock');
-        var customerInfoBlock = document.getElementById('customerInfo');
-        var customerName = document.getElementById('customerName');
-        var customerTab = document.getElementById('customerTab');
-        var shoppingCart = document.getElementById('customerShoppingCart');
 
-        customerName.innerHTML = userId;
-        customerTab.innerHTML = userTabAmount;
-
-        customerLoginBlock.style.display = 'none';
-        customerInfoBlock.style.display = 'block';
-        shoppingCart.style.display = 'block';
+        $("#customerInfo").show();
+        $("#customerName").html(userTag);
+        $("#customerTab").html(userTabAmount);
+        $("#shoppingCart").show();
     }
+
+    $("#loginBlock").hide();
+
+    globals.shoppingCart = new ShoppingCart(user, "cart", "SEK");
+    globals.loggedInUser = user;
 }
 
 function displayCart(){
-    var shoppingCart = document.getElementById('shoppingCart');
-    shoppingCart.style.display = 'block';
+    $("#shoppingCart").show();
 }
 
 function logOut(){
-    window.location.href = "Homepage.html";
+    $("#loginBlock").show();
+    $("#customerInfo").hide();
+    $("#employeeInfoAndLogout").hide();
+    $("#employeeTabInfo").hide();
+    $("#shoppingCart").hide();
+    globals.loggedInUser = null;
 }
 
 
@@ -62,7 +59,6 @@ function createNewCustomer(){
     tabTable.style.display = 'none';
     customerInfoDiv.style.display = 'none';
     newCustomerFields.style.display = 'block';
-
 }
 
 function addCustomer(){

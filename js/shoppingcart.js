@@ -7,7 +7,8 @@ var cartActions = {
     CLEAR: 1
 };
 
-function ShoppingCart(id, currency) {
+function ShoppingCart(userId, id, currency) {
+    this.userId = userId;
     this.id = id;
     this.items = {};
     this.totalQuantity = 0;
