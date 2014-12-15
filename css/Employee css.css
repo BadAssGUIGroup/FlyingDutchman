@@ -96,7 +96,7 @@
 
 }
 
-#shoppingCart {
+#customerShoppingCart {
     display: none;
     margin-top: 10%;
 }
@@ -171,7 +171,7 @@
 
 #Languagebuttons {
 
-    right: 1.6%;
+    right: 1.35%;
     position:fixed;
     margin-top:4%;
     margin-left: 820px;
