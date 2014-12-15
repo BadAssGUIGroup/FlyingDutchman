@@ -27,7 +27,7 @@ function init() {
 function particleInit() {
     var world = new World(-800, -600, 1600, 1200);
     var emitter = new ParticleEmitter(new Vector2(-700, -80), 0, new Vector2(200, 50), Math.PI / 10, new Color(255, 113, 72, 1), 3, 120, 20);
-    var emitter2 = new ParticleEmitter(new Vector2(250, -250), -1, new Vector2(0, 120), Math.PI / 10, new Color(236, 88, 58, 1), 3, 120, 50);
+    var emitter2 = new ParticleEmitter(new Vector2(250, -250), -1, new Vector2(0, 120), Math.PI / 10, new Color(199, 208, 213, 1), 3, 120, 50);
     var forceField = new ForceField(function (particle, out) {
         var x = 0, y = -200;
         var dx = particle.position.x - x;
