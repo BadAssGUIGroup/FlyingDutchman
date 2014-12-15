@@ -19,6 +19,7 @@ function init() {
     var renderer = new CanvasRenderer(canvas.getContext("2d"));
     var camera = new Camera2D();
     camera.setScale(0.4);
+    CanvasRenderer.setClearColor("#91b1c6");
     App.init(particleInit(), renderer, camera);
     App.run();
 }
