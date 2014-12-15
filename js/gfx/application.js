@@ -56,7 +56,7 @@ App.init = function(world, renderer, camera) {
         self.mouseOverCanvas = false;
     });
 
-    this.mouseEmitter = new ParticleEmitter(new Vector2(0, 0), 1, new Vector2(0, 30), 2 * Math.PI, new Color(100, 200, 50, 1), 5, 512, 5);
+    this.mouseEmitter = new ParticleEmitter(new Vector2(0, 0), 1, new Vector2(0, 30), 2 * Math.PI, new Color(255, 113, NaN, 1), 5, 512, 5);
 };
 
 App.initTime = function() {

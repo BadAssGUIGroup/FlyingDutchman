@@ -8,6 +8,7 @@
     margin-left: 20px;
     float: left;
     margin-top: 20px;
+
 }
 
 
@@ -46,6 +47,8 @@
     margin-left: 20px;
     /*float: left;*/
     margin-top: 10px;
+
+    background-color: #91b1c6;
 
     top: 0px;
     z-index: -1;
@@ -163,6 +166,7 @@
 #beers tbody tr:hover {
     color: white;
     background-color: #FF7148;
+
 }
 
 #Languagebuttons {
@@ -194,7 +198,10 @@
 
 #cart_buttons {
     padding-top: 5%;
+
 }
 
 .cart_button {
+    background-color: #FF7148;
+    color: #f5f5f5;
 }
