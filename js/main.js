@@ -20,6 +20,9 @@ function loginUser(){
         var employeeInfoAndLogout = document.getElementById("employeeInfoAndLogout");
         var employeeName = document.getElementById("employeeName");
         var employeeInfoTable = document.getElementById("employeeTabInfo");
+        var updateInventoryButton = document.getElementById("button_updateInventory");
+
+        updateInventoryButton.style.display = 'block';
         employeeName.innerHTML = userId;
         employeeInfoAndLogout.style.display = 'block';
         employeeInfoTable.style.display = 'inline-block';
