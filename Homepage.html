@@ -12,37 +12,7 @@
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/transitions.css">
-<script type="text/javascript">
-    var inc=1;
-    $(function () {
-        $('#next').click(function () {
-            var currentFig = "#fig" + inc;
-            if (inc == 10) {
-                nextFig = "#fig1";
-            } else {
-                nextFig = "#fig" + (inc + 1);
-            }
-            $(nextFig).addClass('showFig');
-            $(currentFig).removeClass('showFig');
-            inc++;
-            if (inc == 11) { inc = 1; }
-        });
-
-        $('#previous').click(function () {
-            var currentFig = "#fig" + inc;
-            if (inc == 1) {
-                prevFig = "#fig10";
-            } else {
-                prevFig = "#fig" + (inc - 1);
-            }
-            $(prevFig).addClass('showFig');
-            $(currentFig).removeClass('showFig');
-            inc--;
-            if (inc == 0) { inc = 10; }
-        });
-    });
-    </script>
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
 
 </head>
 <body>
@@ -190,9 +160,10 @@
 </div>
 
 <div id = beersOfTheWeek>
-    <span style="color: white;">Beers of the week will be displayed here!</span>
-    <br>
-
+    <span style="color: white;">Beers of the Week</span>
+    <div id="beersOfTheWeekImages" style="margin-top: 2%">
+        <img src="" id="beerImage">
+    </div>
 <div id = "shoppingCart">
     <table id = "cart_items">
 
@@ -226,8 +197,6 @@
 </div>
 </div>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript" src="js/gallery.js"></script>
 <script type="text/javascript" src="js/vendor/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/vendor/lodash.min.js"></script>
 <script type="text/javascript" src="js/vendor/gl-matrix-min.js"></script>
@@ -240,6 +209,7 @@
 <script type="text/javascript" src="js/userlist.js"></script>
 <script type="text/javascript" src="js/storage.js"></script>
 <script type="text/javascript" src="js/shoppingcart.js"></script>
+<script type="text/javascript" src="js/showBOTW.js"></script>
 <script type="text/javascript" src="js/globals.js"></script>
 <script type="text/javascript" src="js/gfx/vector2.js"></script>
 <script type="text/javascript" src="js/gfx/vectors.js"></script>
@@ -253,6 +223,10 @@
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/lang.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+
+<script>
+    window.setInterval(globals.botw.rotateNextBeer(),5000);
+</script>
 
 </body>
 </html>
