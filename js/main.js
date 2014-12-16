@@ -33,6 +33,7 @@ function loginUser(){
         $("#employeeName").html(userTag);
         $("#button_updateInventory").show();
         $("#employeeTabInfo").show();
+        $("#beersOfTheWeek").hide();
     } else {
         userTag = "Customer: " + user.firstName + " " + user.lastName;
         var userTabAmount = "Current Tab: " + user.assets;
@@ -41,6 +42,8 @@ function loginUser(){
         $("#customerName").html(userTag);
         $("#customerTab").html(userTabAmount);
         $("#shoppingCart").show();
+        $("#beersOfTheWeek").hide();
+
     }
 
     $("#loginBlock").hide();
@@ -59,6 +62,7 @@ function logOut(){
     $("#employeeInfoAndLogout").hide();
     $("#employeeTabInfo").hide();
     $("#shoppingCart").hide();
+    $("#beersOfTheWeek").show();
     globals.loggedInUser = null;
 }
 
