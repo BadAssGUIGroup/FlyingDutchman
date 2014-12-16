@@ -24,10 +24,32 @@ BeerApp.init = function (canvas) {
     this.opaqueModels = [];
     this.translucentModels = [];
 
+    this.initBeerColors();
     this.initModels();
+
 
     canvas.addEventListener('click', function(evt) {
         BeerApp.fillBeer(0.2);
+    });
+
+    canvas.addEventListener('dragover', function (evt) {
+        evt.preventDefault();
+    });
+
+    canvas.addEventListener('drop', function (evt) {
+        evt.preventDefault();
+        var beerId = evt.dataTransfer.getData("beerId");
+        var beer;
+        if (beerId && (beer = globals.inventory.getBeer(beerId))) {
+            var type = beer['varugrupp'];
+            if (type.indexOf(globals.beerTypes.DARK_LAGER) != -1 || type.indexOf(globals.beerTypes.PORTER_AND_STOUT) != -1)
+                BeerApp.setBeerColor(BeerApp.beerColors.dark);
+            else if (type.indexOf(globals.beerTypes.ALE) != -1)
+                BeerApp.setBeerColor(BeerApp.beerColors.ale);
+            else
+                BeerApp.setBeerColor(BeerApp.beerColors.lager);
+            BeerApp.fillBeer(0.5);
+        }
     });
 
     return true;
@@ -64,6 +86,14 @@ BeerApp.initLighting = function() {
     ShaderPrograms.lightingProgram.setUniform3f("ambientLight", 0.4, 0.4, 0.3);
     ShaderPrograms.lightingProgram.setUniform3f("lightDirection", lightDir[0], lightDir[1], lightDir[2]);
     ShaderPrograms.lightingProgram.setUniform3f("directionalLight", 1.2, 0.8, 1);
+};
+
+BeerApp.initBeerColors = function() {
+    var beerColors = {};
+    beerColors.lager = [1, 0.65, 0, 0.95];
+    beerColors.ale = [1, 0.3, 0, 1];
+    beerColors.dark = [0.5, 0.2, 0.1, 1];
+    this.beerColors = beerColors;
 };
 
 BeerApp.initModels = function() {
@@ -129,7 +159,7 @@ BeerApp.initBeerMug = function(sides) {
 
     var mugColor = [0.52, 0.52, 0.52, 0.25];
     var mugColorSolid = [0.52, 0.52, 0.52, 1];
-    var beerColor = [1, 0.65, 0, 0.95];
+    var beerColor = this.beerColors['lager'];
     mug.addParam(mugColor);
     mug.addParam(mugColorSolid);
     beer.addParam(beerColor);
@@ -235,6 +265,10 @@ BeerApp.setBeerHeight = function(h) {
     }
     beer.bufferData();
     beer.height = h;
+};
+
+BeerApp.setBeerColor = function(color) {
+    this.beer.params[0] = color;
 };
 
 BeerApp.fillBeer = function (dtop) {

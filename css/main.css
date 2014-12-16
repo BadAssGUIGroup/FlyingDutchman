@@ -45,7 +45,7 @@
     pointer-events: all;
     left: 62%;
     background-color: #91b1c6;
-    z-index: -2;
+    z-index: -1;
 }
 
 #canvas {
