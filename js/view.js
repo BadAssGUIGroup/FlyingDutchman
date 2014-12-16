@@ -63,18 +63,20 @@ View.prototype.display = function(tableId) {
     var that = this;
     _(this.viewData).forEach(function (beer) {
         var row = body.insertRow(rowCount);
+        row.draggable = true;
+        row.ondragstart = function(ev) {
+            ev.dataTransfer.setData("beerId", beer['beer_id']);
+        };
         cellCount = 0;
         _(that.fields).forEach(function (field) {
             var cell = row.insertCell(cellCount);
             cell.innerHTML = beer[field];
             cellCount++;
         });
+
         row.onclick = function() {
-            globals.shoppingCart.addItem(beer['beer_id'], beer['namn'], beer['pub_price']);
-            //alert("Beer Id: " + beer['beer_id']);
-            //if (confirm("Add Beer to Cart") == true){
-            //    var name = "name=" + beer['namn'];
-            //}
+            if (globals.shoppingCart != null)
+                globals.shoppingCart.addItem(beer['beer_id'], beer['namn'], beer['pub_price']);
         };
         rowCount++;
     });

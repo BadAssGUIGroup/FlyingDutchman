@@ -2,20 +2,6 @@
  * Created by ashi on 2014-12-09.
  */
 
-/**
- * requestAnimationFrame shim by Paul Irish
- */
-window.requestAnimationFrame = (function() {
-    return window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        function(callback) {
-            window.setTimeout(callback, 1000/60);
-        };
-})();
-
 var App = {};
 
 App.init = function(world, renderer, camera) {
@@ -56,7 +42,7 @@ App.init = function(world, renderer, camera) {
         self.mouseOverCanvas = false;
     });
 
-    this.mouseEmitter = new ParticleEmitter(new Vector2(0, 0), 1, new Vector2(0, 30), 2 * Math.PI, new Color(255, 99, 103, 1), 5, 512, 5);
+    this.mouseEmitter = new ParticleEmitter(new Vector2(0, 0), 1, new Vector2(0, 30), 2 * Math.PI, new Color(255, 99, 103, 1), 3, 512, 5);
 };
 
 App.initTime = function() {

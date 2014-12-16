@@ -38,11 +38,21 @@
     pointer-events: none;
 }
 
+#beerCanvas {
+    position: absolute;
+    top: 0;
+    display: block;
+    pointer-events: all;
+    left: 62%;
+    background-color: #91b1c6;
+    z-index: -1;
+}
+
 #canvas {
     position:absolute;
     display: block;
-    padding-left: 1%;
-    padding-right: 1%;
+    /*padding-left: 1%;*/
+    /*padding-right: 1%;*/
     width: 60%;
     margin-left: 20px;
     /*float: left;*/
