@@ -1,9 +1,21 @@
 /* Populate namespace */
 
+/**
+ * requestAnimationFrame shim by Paul Irish
+ */
+window.requestAnimationFrame = (function() {
+    return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        function(callback) {
+            window.setTimeout(callback, 1000/60);
+        };
+})();
+
 loadGlobals();
 displayItems('ALL');
-
-var gurka;
 
 function loginUser(){
     var userName = document.getElementById("loginUsername").value;
@@ -11,7 +23,6 @@ function loginUser(){
     var user = globals.userList.getUser(userName);
     var userTag;
 
-    gurka = user;
     if (user == null || userName != passWord) {
         alert("Incorrect username or password");
         return;
