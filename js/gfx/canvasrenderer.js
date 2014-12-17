@@ -7,7 +7,7 @@ function CanvasRenderer(context) {
     this.canvas = context.canvas;
     this.width = context.canvas.width;
     this.height = context.canvas.height;
-    this.clearColor = "#000000";
+    this.clearColor = "transparent";
 }
 
 CanvasRenderer.prototype.setClearColor = function(color) {

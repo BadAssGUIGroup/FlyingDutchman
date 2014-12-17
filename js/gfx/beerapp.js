@@ -62,7 +62,7 @@ BeerApp.init = function (canvas) {
     });
 
     //$("#beerCanvas").css('background-color', 'rgba(0, 0, 0, 1');
-    $("#beerCanvas").css('background-color', 'rgba(145, 177, 198, 1');
+    //$("#beerCanvas").css('background-color', 'rgba(145, 177, 198, 1');
 
     return true;
 };

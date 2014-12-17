@@ -38,15 +38,6 @@
     pointer-events: none;
 }
 
-#beerCanvas {
-    position: absolute;
-    top: 0;
-    display: block;
-    pointer-events: all;
-    left: 62%;
-    background-color: #91b1c6;
-    z-index: -1;
-}
 
 #canvas {
     position:absolute;
@@ -57,12 +48,23 @@
     margin-left: 20px;
     /*float: left;*/
     margin-top: 10px;
+    pointer-events: all;
+    background-color: transparent;
+    /*#91b1c6;*/
 
-    background-color: #91b1c6;
-
-    top: 0px;
+    top: 0;
     z-index: -1;
     /*width: 60%;*/
+}
+
+#beerCanvas {
+    position: absolute;
+    top: 0;
+    display: block;
+    pointer-events: all;
+    left: 48%;
+    background-color: transparent;
+    z-index: -2;
 }
 
 #Header_background {
