@@ -23,8 +23,8 @@ function init() {
     var camera = new Camera2D();
     camera.setScale(0.4);
     renderer.setClearColor("#91b1c6");
-    App.init(particleInit(), renderer, camera);
-    App.run();
+    //App.init(particleInit(), renderer, camera);
+    //App.run();
 
     var beerCanvas = document.getElementById("beerCanvas");
     if (BeerApp.init(beerCanvas))

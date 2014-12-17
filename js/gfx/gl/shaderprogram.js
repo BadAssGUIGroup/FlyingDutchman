@@ -56,7 +56,7 @@ ShaderProgram.prototype.hasUniform = function(name) {
 ShaderProgram.prototype.setUniform1f = function(name, f) {
     var loc = this.uniforms[name];
     if (loc)
-        gl.uniform1f(loc, f1);
+        gl.uniform1f(loc, f);
 };
 
 ShaderProgram.prototype.setUniform2f = function(name, f1, f2) {
