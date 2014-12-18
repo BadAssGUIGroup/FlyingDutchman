@@ -7,8 +7,8 @@ var cartActions = {
     CLEAR: 1
 };
 
-function ShoppingCart(userId, id, currency) {
-    this.userId = userId;
+function ShoppingCart(userName, id, currency) {
+    this.userName = userName;
     this.id = id;
     this.items = {};
     this.totalQuantity = 0;
@@ -23,6 +23,14 @@ function ShoppingCart(userId, id, currency) {
 ShoppingCart.prototype.addItem = function (id, name, price, quantity, redo) {
     var item = this.items[id];
     var quantity = (quantity == null) ? 1 : quantity;
+    var beer = globals.inventory.getBeer(id);
+    var stock = beer['count'];
+
+    if (quantity + ((item == null) ? 0 : (item['quantity'])) > stock) {
+        alert("Not in stock!");
+        return;
+    }
+
     if (item == null) {
         this.items[id] = {'id': id, 'name': name, 'quantity': quantity, 'total': price * quantity};
     } else {
@@ -109,8 +117,24 @@ ShoppingCart.prototype.redo = function() {
 };
 
 ShoppingCart.prototype.checkout = function() {
-    if (window.confirm("Checkout?"))
-        alert("pfft!");
+    if (!window.confirm("Confirm order!"))
+        return;
+
+    var username = this.userName;
+
+    _.forEach(this.items, function(item, id) {
+        var quantity = item['quantity'];
+        for (var i = 0; i < quantity; i++) {
+            request(username, username, globals.actions.purchase, function(data) {
+            }, [{name: "beer_id", value: id}]);
+        }
+        globals.userList.getUser(username).assets -= item['total'];
+        globals.inventory.removeBeer(id, quantity);
+    });
+
+    this.clear();
+    this.actionStack = [];
+    this.redoStack = [];
 };
 
 ShoppingCart.prototype.refreshDisplay = function() {

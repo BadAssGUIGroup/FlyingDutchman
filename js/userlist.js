@@ -36,6 +36,10 @@ UserList.prototype.refresh = function(callback) {
 
 };
 
+UserList.prototype.display = function(tableId) {
+
+};
+
 UserList.prototype.toJSON = function () {
     return {'userList': this.userList, 'users': this.users};
 };

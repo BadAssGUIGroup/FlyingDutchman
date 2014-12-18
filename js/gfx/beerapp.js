@@ -37,6 +37,10 @@ BeerApp.init = function (canvas) {
         BeerApp.mousePos = {x: 2*x/width - 1, y: 1 - 2 * y / height};
     });
 
+    canvas.addEventListener('mouseout', function (evt) {
+        BeerApp.mousePos = null;
+    });
+
     canvas.addEventListener('click', function(evt) {
         BeerApp.clearBeer();
     });
@@ -125,19 +129,19 @@ BeerApp.updateLighting = function() {
 };
 
 BeerApp.updateLightPos = function() {
-    if (!this.mousePos)
-        return;
-    var x = this.mousePos.x;
-    var y = this.mousePos.y;
-    var w = this.canvas.width;
-    var h = this.canvas.width;
-    this.lightPos[0] = 8*x;
-    this.lightPos[1] = 8*y;
-    this.lightPos[2] = 0.3;
-    var invPV = mat4.invert(mat4.create(), mat4.mul(mat4.create(), this.pipeline.uPMatrix, this.pipeline.uVMatrix));
-    vec3.transformMat4(this.lightPos, this.lightPos, invPV);
-
-    //vec3.transformMat4(this.lightPos, [-3, -2, 0], this.pipeline.cameraMatrix);
+    if (this.mousePos != null) {
+        var x = this.mousePos.x;
+        var y = this.mousePos.y;
+        var w = this.canvas.width;
+        var h = this.canvas.width;
+        this.lightPos[0] = 8 * x;
+        this.lightPos[1] = 8 * y;
+        this.lightPos[2] = 0.3;
+        var invPV = mat4.invert(mat4.create(), mat4.mul(mat4.create(), this.pipeline.uPMatrix, this.pipeline.uVMatrix));
+        vec3.transformMat4(this.lightPos, this.lightPos, invPV);
+    } else {
+        vec3.transformMat4(this.lightPos, [-3, -2, 0], this.pipeline.cameraMatrix);
+    }
 };
 
 BeerApp.initBeerColors = function() {

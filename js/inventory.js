@@ -22,6 +22,10 @@ Inventory.prototype.addBeer = function(beer, beerData) {
     });
 };
 
+Inventory.prototype.removeBeer = function(beerId, quantity) {
+    this.beers[beerId]['count'] -= quantity;
+};
+
 Inventory.prototype.refresh = function(callback) {
     this.clear();
     this.refreshing = true;

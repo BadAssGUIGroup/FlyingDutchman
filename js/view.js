@@ -40,6 +40,8 @@ View.prototype.display = function(tableId) {
     if (this.viewData == null)
         return;
 
+    var isEmployee = (globals.loggedInUser != null && globals.loggedInUser.isEmployee());
+
     var table = document.getElementById(tableId);
     var header = table.getElementsByTagName('thead')[0];
     var body = table.getElementsByTagName('tbody')[0];
@@ -55,7 +57,10 @@ View.prototype.display = function(tableId) {
     var headerRow = header.insertRow();
     var headerRowStr = "";
     _(this.fields).forEach(function (key) {
-        headerRowStr += "<th>" + globals.headerNames[key] + "</th>";
+        var headerName = globals.headerNames[key];
+        if (headerName == "Inventory" && isEmployee != true)
+            headerName = "Availability";
+        headerRowStr += "<th>" + headerName + "</th>";
     });
     headerRow.innerHTML = headerRowStr;
 
@@ -70,7 +75,8 @@ View.prototype.display = function(tableId) {
         cellCount = 0;
         _(that.fields).forEach(function (field) {
             var cell = row.insertCell(cellCount);
-            cell.innerHTML = beer[field];
+            var value = beer[field];
+            cell.innerHTML = (isEmployee != true && field == "count") ? (value > 0) ? "In stock" : "Not in stock" : value;
             cellCount++;
         });
 

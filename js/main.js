@@ -26,7 +26,23 @@ function loginUser(){
     if (user == null || userName != passWord) {
         alert("Incorrect username or password");
         return;
-    } else if(user.isEmployee()){
+    }
+
+    displayUserInfo(user);
+    globals.loggedInUser = user;
+
+    displayItems();
+
+    $("#loginBlock").hide();
+
+    if (globals.carts[userName] == null)
+        globals.carts[userName] = new ShoppingCart(userName, "cart", "SEK");
+    globals.shoppingCart = globals.carts[userName];
+}
+
+function displayUserInfo(user) {
+    var userTag;
+    if (user.isEmployee()) {
         userTag = "Employee: " + user.firstName + " " + user.lastName;
 
         $("#employeeInfoAndLogout").show();
@@ -43,15 +59,7 @@ function loginUser(){
         $("#customerTab").html(userTabAmount);
         $("#shoppingCart").show();
         $("#beersOfTheWeek").hide();
-
     }
-
-    $("#loginBlock").hide();
-
-    if (globals.carts[user] == null)
-        globals.carts[user] = new ShoppingCart(user, "cart", "SEK");
-    globals.shoppingCart = globals.carts[user];
-    globals.loggedInUser = user;
 }
 
 function displayCart(){
@@ -66,6 +74,7 @@ function logOut(){
     $("#shoppingCart").hide();
     $("#beersOfTheWeek").show();
     globals.loggedInUser = null;
+    displayItems();
 }
 
 
@@ -111,9 +120,10 @@ function displayItems(item, sortField) {
         alert("Updating Inventory not Supported Yet!!!");
     } else {
     var view = (item != null) ? globals.viewCache.getView(item) : globals.viewCache.getView("ALL");
-    if (sortField != null)
-        view.sort(sortField);
-    view.display('beers');
+        if (sortField != null)
+            view.sort(sortField);
+        globals.currentView = view;
+        view.display('beers');
     }
 }
 
