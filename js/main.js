@@ -21,7 +21,6 @@ function loginUser(){
     var userName = document.getElementById("loginUsername").value;
     var passWord = document.getElementById("loginPwd").value;
     var user = globals.userList.getUser(userName);
-    var userTag;
 
     if (user == null || userName != passWord) {
         alert("Incorrect username or password");
