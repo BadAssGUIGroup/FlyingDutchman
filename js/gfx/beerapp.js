@@ -60,6 +60,10 @@ BeerApp.init = function (canvas) {
                 color = BeerApp.beerColors.dark;
             else if (type.indexOf(globals.beerTypes.ALE) != -1)
                 color = BeerApp.beerColors.ale;
+            else if (type.indexOf(globals.beerTypes.RED_WINE)!=-1)
+                color = BeerApp.beerColors.red_wine;
+            else if (type.indexOf(globals.beerTypes.WHITE_WINE)!=-1)
+                color = BeerApp.beerColors.white_wine;
             else
                 color = BeerApp.beerColors.lager;
             var h = BeerApp.beer.height;
@@ -115,7 +119,7 @@ BeerApp.initLighting = function() {
 
     ShaderPrograms.lightingProgram.setUniform3f("pointLight", 1, 0.8, 0.82);
     ShaderPrograms.lightingProgram.setUniform3f("lightPos", lightPos[0], lightPos[1], lightPos[2]);
-    ShaderPrograms.lightingProgram.setUniform1f("attenuationFactor", 0.05);
+    ShaderPrograms.lightingProgram.setUniform1f("attenuationFactor", 0.06);
 
     //ShaderPrograms.lightingProgram.setUniform3f("ambientLight", 0.1, 0.1, 0.1);
     //ShaderPrograms.lightingProgram.setUniform3f("ambientLight", 0, 0, 0); // 0.1
@@ -136,7 +140,7 @@ BeerApp.updateLightPos = function() {
         var h = this.canvas.width;
         this.lightPos[0] = 8 * x;
         this.lightPos[1] = 8 * y;
-        this.lightPos[2] = 0.3;
+        this.lightPos[2] = 0.1;
         var invPV = mat4.invert(mat4.create(), mat4.mul(mat4.create(), this.pipeline.uPMatrix, this.pipeline.uVMatrix));
         vec3.transformMat4(this.lightPos, this.lightPos, invPV);
     } else {
@@ -149,6 +153,8 @@ BeerApp.initBeerColors = function() {
     beerColors.lager = [1, 0.75, 0, 0.98];
     beerColors.ale = [1, 0.3, 0, 1];
     beerColors.dark = [0.5, 0.2, 0.1, 1];
+    beerColors.red_wine = [150 / 255, 0, 0, 1];
+    beerColors.white_wine = [1, 1, 0.1, 0.7];
     this.beerColors = beerColors;
 };
 
