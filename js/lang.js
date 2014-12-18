@@ -60,7 +60,9 @@ var swedish = {
     'cart_checkout': "Köp",
     'cart_undo': "Undo",
     'cart_redo': "Redo",
-    'cart_total_string': "Summa"
+    'cart_total_string': "Summa",
+
+    'botw_string': "Veckans Öl"
 };
 
 
@@ -94,7 +96,9 @@ var english = {
     'cart_checkout': "Checkout",
     'cart_undo': "Undo",
     'cart_redo': "Redo",
-    'cart_total_string': "Final Total"
+    'cart_total_string': "Final Total",
+
+    'botw_string': "Beers of the Week"
 };
 
 languageManager.addLanguage("swedish", swedish);
