@@ -230,12 +230,9 @@
 
 #Languagebuttons {
 
-    right: 1.6%;
-    position:fixed;
-    margin-top:4%;
-    margin-left: 820px;
-    float: right;
-
+    right: 4px;
+    position: absolute;
+    top: 4px;
 }
 
 #cart_items {
