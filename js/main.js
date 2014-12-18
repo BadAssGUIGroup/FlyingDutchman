@@ -124,6 +124,7 @@ function displayItems(item, sortField) {
             view.sort(sortField);
         globals.currentView = view;
         view.display('beers');
+        languageManager.setLanguage();
     }
 }
 

@@ -48,7 +48,7 @@
         <div id="customerInfo" style="display: none; padding-top: 1%; float: right;  margin-right: 5%; pointer-events: all">
             <p id="customerName">Customer: <></p>
             <p id="customerTab">Tab <></p>
-            <button class="pure-button" type="button" style="float: right; padding-top: 2%; background-color: #FF7148; color: #F5f5f5" onclick="logOut()" >Logout</button>
+            <button class="pure-button" type="button" style="float: right; padding-top: 2%; background-color: #FF7148; color: #F5f5f5" onclick="logOut()" id="button_logout">Logout</button>
         </div>
         <div id="employeeInfoAndLogout" style="display: none; float: right; margin-right: 2%;   pointer-events: all">
 
@@ -139,9 +139,9 @@
 
         <thead>
         <tr>
-            <th id = "cart_items_name">Name</th>
-            <th id = "cart_items_quantity">Qt.</th>
-            <th id = "cart_items_total">Total</th>
+            <th class="table_headerName" id = "cart_items_name">Name</th>
+            <th class = "table_headerQuantity" id = "cart_items_quantity">Qt.</th>
+            <th class = "table_headerTotal" id = "cart_items_total">Total</th>
         </tr>
 
         </thead>
@@ -157,10 +157,10 @@
         </tfoot>
     </table>
     <div id="cart_buttons">
-        <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.clear()" id = "cart_clear_string" >Clear</button>
-        <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.checkout(); globals.currentView.display('beers'); displayUserInfo(globals.loggedInUser)" id = "cart_checkout_string">Checkout</button>
-        <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.undo()" id = "cart_undo_string">Undo</button>
-        <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.redo()" id = "cart_redo_string">Redo</button>
+        <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.clear()" id = "cart_clear" >Clear</button>
+        <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.checkout(); globals.currentView.display('beers'); displayUserInfo(globals.loggedInUser)" id = "cart_checkout">Checkout</button>
+        <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.undo()" id = "cart_undo">Undo</button>
+        <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.redo()" id = "cart_redo">Redo</button>
     </div>
 </div>
 

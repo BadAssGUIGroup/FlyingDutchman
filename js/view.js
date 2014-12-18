@@ -60,7 +60,8 @@ View.prototype.display = function(tableId) {
         var headerName = globals.headerNames[key];
         if (headerName == "Inventory" && isEmployee != true)
             headerName = "Availability";
-        headerRowStr += "<th>" + headerName + "</th>";
+        var headerId = "table_header" + headerName;
+        headerRowStr += "<th class=" + headerId + ">" + headerName + "</th>";
     });
     headerRow.innerHTML = headerRowStr;
 
@@ -72,11 +73,20 @@ View.prototype.display = function(tableId) {
         row.ondragstart = function(ev) {
             ev.dataTransfer.setData("beerId", beer['beer_id']);
         };
-        cellCount = 0;
+        var cellCount = 0;
         _(that.fields).forEach(function (field) {
             var cell = row.insertCell(cellCount);
             var value = beer[field];
-            cell.innerHTML = (isEmployee != true && field == "count") ? (value > 0) ? "In stock" : "Not in stock" : value;
+            if (isEmployee != true && field == "count") {
+                if (value > 0) {
+                    cell.innerHTML = "In stock";
+                    cell.className = "table_cellInStock";
+                } else {
+                    cell.innerHTML = "Not in stock";
+                    cell.className = "table_cellNotInStock";
+                }
+            } else
+                cell.innerHTML = value;
             cellCount++;
         });
 
