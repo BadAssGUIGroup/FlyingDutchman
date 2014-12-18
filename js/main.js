@@ -36,7 +36,7 @@ function loginUser(){
         $("#beersOfTheWeek").hide();
     } else {
         userTag = "Customer: " + user.firstName + " " + user.lastName;
-        var userTabAmount = "Current Tab: " + user.assets;
+        var userTabAmount = "Credit: " + user.assets;
 
         $("#customerInfo").show();
         $("#customerName").html(userTag);

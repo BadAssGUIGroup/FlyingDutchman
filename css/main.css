@@ -2,10 +2,6 @@
     display: table;
 }
 
-#loginForm p {
-    display: table-row;
-}
-
 #loginForm label {
     /*color: white;*/
     color: #FF7148;
