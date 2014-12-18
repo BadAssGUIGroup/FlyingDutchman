@@ -109,21 +109,17 @@ ShoppingCart.prototype.redo = function() {
 };
 
 ShoppingCart.prototype.checkout = function() {
-    alert("pfft!");
+    if (window.confirm("Checkout?"))
+        alert("pfft!");
 };
 
 ShoppingCart.prototype.refreshDisplay = function() {
-    var items = document.getElementById(this.id + "_items");
-    var totalQuantity = document.getElementById(this.id + "_total_quantity")
-    var total = document.getElementById(this.id + "_total");
-    var body = items.getElementsByTagName('tbody')[0];
-
     var bodyString = "";
     _.forEach(this.items, function (beer) {
         bodyString += "<tr><td>" + beer['name'] + "</td><td>" + beer['quantity'] + "</td><td>" + beer['total'] + " " + this.currency + "</td></tr>";
     }, this);
 
-    body.innerHTML = bodyString;
-    totalQuantity.innerHTML = this.totalQuantity;
-    total.innerHTML = this.total + " " + this.currency;
+    $("#" + this.id + "_items").children("tbody").html(bodyString);
+    $("#" + this.id + "_total_quantity").html(this.totalQuantity);
+    $("#" + this.id + "_total").html(this.total + " " + this.currency);
 };
