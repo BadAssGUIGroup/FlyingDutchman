@@ -103,7 +103,7 @@
     pointer-events: all;
     left: 48%;
     background-color: transparent;
-    z-index: -2;
+    z-index: -1;
 }
 
 #Header_background {

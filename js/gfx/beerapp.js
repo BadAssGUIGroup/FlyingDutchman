@@ -38,7 +38,7 @@ BeerApp.init = function (canvas) {
     });
 
     canvas.addEventListener('click', function(evt) {
-        BeerApp.fillBeer(0.2);
+        BeerApp.clearBeer();
     });
 
     canvas.addEventListener('dragover', function (evt) {
@@ -50,14 +50,22 @@ BeerApp.init = function (canvas) {
         var beerId = evt.dataTransfer.getData("beerId");
         var beer;
         if (beerId && (beer = globals.inventory.getBeer(beerId))) {
+            var color;
             var type = beer['varugrupp'];
             if (type.indexOf(globals.beerTypes.DARK_LAGER) != -1 || type.indexOf(globals.beerTypes.PORTER_AND_STOUT) != -1)
-                BeerApp.setBeerColor(BeerApp.beerColors.dark);
+                color = BeerApp.beerColors.dark;
             else if (type.indexOf(globals.beerTypes.ALE) != -1)
-                BeerApp.setBeerColor(BeerApp.beerColors.ale);
+                color = BeerApp.beerColors.ale;
             else
-                BeerApp.setBeerColor(BeerApp.beerColors.lager);
-            BeerApp.fillBeer(0.5);
+                color = BeerApp.beerColors.lager;
+            var h = BeerApp.beer.height;
+            var dh = 0.5;
+            var newColor = [];
+            for (var i = 0; i < 4; i++) {
+                newColor[i] = (h * BeerApp.beer.params[0][i] + dh * color[i]) / (h + dh);
+            }
+            BeerApp.setBeerColor(newColor);
+            BeerApp.fillBeer(dh);
         }
     });
 
@@ -107,7 +115,8 @@ BeerApp.initLighting = function() {
 
     //ShaderPrograms.lightingProgram.setUniform3f("ambientLight", 0.1, 0.1, 0.1);
     //ShaderPrograms.lightingProgram.setUniform3f("ambientLight", 0, 0, 0); // 0.1
-    //ShaderPrograms.lightingProgram.setUniform3f("directionalLight", 0.6, 0.6, 0.6); //0.6
+    //ShaderPrograms.lightingProgram.setUniform3f("directionalLight", 0, 0, 0); //0.6
+    //ShaderPrograms.lightingProgram.setUniform3f("pointLight", 1, 0, 0);
 };
 
 BeerApp.updateLighting = function() {
@@ -116,19 +125,19 @@ BeerApp.updateLighting = function() {
 };
 
 BeerApp.updateLightPos = function() {
-    //if (!this.mousePos)
-    //    return;
-    //var x = this.mousePos.x;
-    //var y = this.mousePos.y;
-    //var w = this.canvas.width;
-    //var h = this.canvas.width;
-    //this.lightPos[0] = 8*x;
-    //this.lightPos[1] = 8*y;
-    //this.lightPos[2] = 0.3;
-    //var invPV = mat4.invert(mat4.create(), mat4.mul(mat4.create(), this.pipeline.uPMatrix, this.pipeline.uVMatrix));
-    //vec3.transformMat4(this.lightPos, this.lightPos, invPV);
+    if (!this.mousePos)
+        return;
+    var x = this.mousePos.x;
+    var y = this.mousePos.y;
+    var w = this.canvas.width;
+    var h = this.canvas.width;
+    this.lightPos[0] = 8*x;
+    this.lightPos[1] = 8*y;
+    this.lightPos[2] = 0.3;
+    var invPV = mat4.invert(mat4.create(), mat4.mul(mat4.create(), this.pipeline.uPMatrix, this.pipeline.uVMatrix));
+    vec3.transformMat4(this.lightPos, this.lightPos, invPV);
 
-    vec3.transformMat4(this.lightPos, [-3, -2, 0], this.pipeline.cameraMatrix);
+    //vec3.transformMat4(this.lightPos, [-3, -2, 0], this.pipeline.cameraMatrix);
 };
 
 BeerApp.initBeerColors = function() {
@@ -322,6 +331,11 @@ BeerApp.setBeerHeight = function(h) {
 
 BeerApp.setBeerColor = function(color) {
     this.beer.params[0] = color;
+};
+
+BeerApp.clearBeer = function() {
+    this.beer.height = 0;
+    this.beer.top = this.beer.bottom;
 };
 
 BeerApp.fillBeer = function (dtop) {

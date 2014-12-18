@@ -48,7 +48,9 @@ function loginUser(){
 
     $("#loginBlock").hide();
 
-    globals.shoppingCart = new ShoppingCart(user, "cart", "SEK");
+    if (globals.carts[user] == null)
+        globals.carts[user] = new ShoppingCart(user, "cart", "SEK");
+    globals.shoppingCart = globals.carts[user];
     globals.loggedInUser = user;
 }
 
