@@ -4,21 +4,20 @@
 
 function BeersOfTheWeek(){
     this.botwHtmlDivObj = document.getElementById("beersOfTheWeekImages");
-    this.htmlImgObj = document.getElementById("beerImage");
     this.imgSources = ["guinness.jpeg","Heineken.png","SAM-ADAMS-BEER.jpg"];
     this.currentImgNmbr = 0;
-    this.htmlImgObj.src = this.imgSources[this.currentImgNmbr];
-    this.htmlImgObj.className = 'slideInRight';
+    $(this.botwHtmlDivObj).append("<img src='" + this.imgSources[0] + "' id='beerImage' class='slideInRight'/>");
 }
 
 BeersOfTheWeek.prototype.rotateNextBeer = function(botw){
-    botw.botwHtmlDivObj.style.webkitAnimationName = '';
-    setTimeout(function ()
-    {
-        botw.botwHtmlDivObj.style.webkitAnimationName = 'slideInRight';
-    }, 0);
     botw.currentImgNmbr = (botw.currentImgNmbr +1) % botw.imgSources.length;
-    botw.htmlImgObj.src = botw.imgSources[botw.currentImgNmbr];
+    var newImgDiv = botw.botwHtmlDivObj.cloneNode(true);
+    botw.botwHtmlDivObj.parentNode.replaceChild(newImgDiv,botw.botwHtmlDivObj);
+    botw.botwHtmlDivObj = newImgDiv;
+    while(botw.botwHtmlDivObj.firstChild){
+        botw.botwHtmlDivObj.removeChild(botw.botwHtmlDivObj.firstChild);
+    }
+    $(botw.botwHtmlDivObj).append("<img src='" + this.imgSources[botw.currentImgNmbr] + "' id='beerImage' class='slideInRight'/>");
 
 };
 
