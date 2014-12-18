@@ -265,19 +265,18 @@ BeerApp.initBeerMug = function(sides) {
 
     for (var i = 2 * n; i < 3 * n - 1; i++) {
         var sideFace = [];
-        sideFace.push([i, 0]);
         sideFace.push([i+1, 0]);
-        sideFace.push([n + i+1, 0]);
+        sideFace.push([i, 0]);
         sideFace.push([n + i, 0]);
+        sideFace.push([n + i+1, 0]);
         mug.addFace(sideFace);
     }
     var sideFace = [];
-    sideFace.push([3 * n - 1, 0]);
     sideFace.push([2 * n, 0]);
-    sideFace.push([3 * n, 0]);
+    sideFace.push([3 * n - 1, 0]);
     sideFace.push([4 * n - 1, 0]);
+    sideFace.push([3 * n, 0]);
     mug.addFace(sideFace);
-
 
     for (var i = 0; i < n - 1; i++) {
         var sideFace = [];
