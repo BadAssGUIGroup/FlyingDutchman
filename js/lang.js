@@ -59,7 +59,8 @@ var swedish = {
     'cart_clear': "Rensa",
     'cart_checkout': "Köp",
     'cart_undo': "Undo",
-    'cart_redo': "Redo"
+    'cart_redo': "Redo",
+    'cart_total_string': "Summa"
 };
 
 
@@ -92,7 +93,8 @@ var english = {
     'cart_clear': "Clear",
     'cart_checkout': "Checkout",
     'cart_undo': "Undo",
-    'cart_redo': "Redo"
+    'cart_redo': "Redo",
+    'cart_total_string': "Final Total"
 };
 
 languageManager.addLanguage("swedish", swedish);
