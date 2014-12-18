@@ -33,11 +33,11 @@
             <form id="loginForm">
                 <div id="userNameBox">
                     <label id="userLogin" for="loginUsername">Username: </label>
-                    <input type="text" name="name" id="loginUsername" placeholder="username" required/>
+                    <input type="text" name="name" id="loginUsername" class="input_username" placeholder="username" required/>
                 </div>
                 <div id="passwordBox" style="padding-top: 2%">
                     <label id="userPWD" for="loginPwd">Password:&nbsp; </label>
-                    <input type="password" name="name" id="loginPwd" placeholder="password" required/>
+                    <input type="password" name="name" id="loginPwd" class="input_password" placeholder="password" required/>
                 </div>
                 <div id="loginButton" style="float: right; padding-top: 2%; ">
                     <button class="pure-button" type="button" style="background-color: #FF7148; color: #F5f5f5" onclick="loginUser()" id = "button_login" >Login</button>
@@ -102,23 +102,23 @@
 
 <div id = "employeeTabInfo">
 
-    <p style="text-align: center; margin-top: 0%; color:white" >Customer Tabs:</p>
+    <p style="text-align: center; margin-top: 0%; color:white" >Customers:</p>
     <table sortable id="tabs">
         <thead></thead>
         <tbody></tbody>
     </table>
 
     <div id="createNewCustomer" style="display: none; color: #91b1c6">
-        <label id = "firstNameLabel" for = "firstName" style = "display: block" >FirstName: </label>
-        <input type = "text" name = "name" id = "firstName" placeholder = "First Name" required/>
+        <label id = "firstNameLabel" for = "firstName" style = "display: block" >First Name: </label>
+        <input type = "text" name = "name" id = "firstName" class="input_firstName" placeholder = "First Name" required/>
         <label id = "surnameLabel" for = "surname" style = "display: block; margin-top: 5%">Surname: </label>
-        <input type = "text" name = "name" id = "surname" placeholder = "Surname" required/>
+        <input type = "text" name = "name" id = "surname" class="input_surName" placeholder = "Surname" required/>
         <label id = "usernameLabel" for = "username" style = "display: block; margin-top: 5%">Username: </label>
-        <input type = "text" name = "name" id = "username" placeholder = "username" required/>
+        <input type = "text" name = "name" id = "username" class="input_username" placeholder = "username" required/>
         <label id = "pwdLabel" for = "pwd" style = "display: block; margin-top: 5%">Password: </label>
-        <input type = "text" name = "name" id = "pwd" placeholder = "password" required/>
+        <input type = "text" name = "name" id = "pwd" class="input_password" placeholder = "password" required/>
         <label id = "pwdLabelConfirm" for = "pwdConfirm" style = "display: block; margin-top: 5%">Confirm Password: </label>
-        <input type = "text" name = "name" id = "pwdConfirm" placeholder = "password" required/>
+        <input type = "text" name = "name" id = "pwdConfirm" class="input_password" placeholder = "password" required/>
         <button class = "pure-button" type = "button" style = "margin-top: 5%; display: block" onclick = "addCustomer()" >Create</button>
     </div>
 

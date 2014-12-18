@@ -42,7 +42,7 @@ function loginUser(){
 function displayUserInfo(user) {
     var userTag;
     if (user.isEmployee()) {
-        userTag = "Employee: " + user.firstName + " " + user.lastName;
+        userTag = "<text class=employee_string>Employee</text>: " + user.firstName + " " + user.lastName;
 
         $("#employeeInfoAndLogout").show();
         $("#employeeName").html(userTag);
@@ -50,8 +50,8 @@ function displayUserInfo(user) {
         $("#employeeTabInfo").show();
         $("#beersOfTheWeek").hide();
     } else {
-        userTag = "Customer: " + user.firstName + " " + user.lastName;
-        var userTabAmount = "Credit: " + user.assets;
+        userTag = "<text class=customer_string>Customer</text>: " + user.firstName + " " + user.lastName;
+        var userTabAmount = "<text class=credit_string>Credit</text>: " + user.assets;
 
         $("#customerInfo").show();
         $("#customerName").html(userTag);
