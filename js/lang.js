@@ -58,7 +58,15 @@ var swedish = {
         'cart_redo': "Redo",
         'cart_total_string': "Summa",
 
-        'botw_string': "Veckans Öl"
+        'botw_string': "Veckans Öl",
+
+        'employee_button_logout': "Logga ut",
+        'employee_button_inventory': "Lager",
+        'employee_button_customers': "Kunder",
+        'employee_button_order': "Order",
+        'employee_button_inventoryH': "Lager",
+        'employee_button_customersH': "Kunder",
+        'employee_button_orderH': "Order"
     },
     'class' : {
         'customer_string': "Kund",
@@ -71,6 +79,10 @@ var swedish = {
         'table_headerAvailability': "Lagerstatus",
         'table_headerQuantity': "Antal",
         'table_headerTotal': "Totalt",
+        'table_header_username': "Användarnamn",
+        'table_header_first_name': "Förnamn",
+        'table_header_last_name': "Efternamn",
+        'table_header_assets': "Konto",
         'table_cellInStock': "I lager",
         'table_cellNotInStock': "Ej i lager"
     },
@@ -78,7 +90,8 @@ var swedish = {
         'input_username': "användarnamn",
         'input_password': "lösenord",
         'input_firstName': "Förnamn",
-        'input_surName': "Efternamn"
+        'input_surName': "Efternamn",
+        'input_filter': "filter"
     }
 };
 
@@ -106,7 +119,15 @@ var english = {
         'cart_redo': "Redo",
         'cart_total_string': "Final Total",
 
-        'botw_string': "Beers of the Week"
+        'botw_string': "Beers of the Week",
+
+        'employee_button_logout': "Logout",
+        'employee_button_inventory': "Inventory",
+        'employee_button_customers': "Customers",
+        'employee_button_order': "Order",
+        'employee_button_inventoryH': "Inventory",
+        'employee_button_customersH': "Customers",
+        'employee_button_orderH': "Order"
     },
     'class': {
         'customer_string': "Customer",
@@ -119,6 +140,10 @@ var english = {
         'table_headerAvailability': "Availability",
         'table_headerQuantity': "Qt.",
         'table_headerTotal': "Total",
+        'table_header_username': "Username",
+        'table_header_first_name': "First Name",
+        'table_header_last_name': "Surname",
+        'table_header_assets': "Assets",
         'table_cellInStock': "In stock",
         'table_cellNotInStock': "Not in stock"
     },
@@ -126,7 +151,8 @@ var english = {
         'input_username': "username",
         'input_password': "password",
         'input_firstName': "First Name",
-        'input_surName': "Surname"
+        'input_surName': "Surname",
+        'input_filter': "filter"
     }
 };
 

@@ -61,7 +61,7 @@ View.prototype.display = function(tableId) {
         if (headerName == "Inventory" && isEmployee != true)
             headerName = "Availability";
         var headerId = "table_header" + headerName;
-        headerRowStr += "<th class=" + headerId + ">" + headerName + "</th>";
+        headerRowStr += "<th class=" + headerId + " onclick=\"sortCurrentView('" + key + "')\">" + headerName + "</th>";
     });
     headerRow.innerHTML = headerRowStr;
 

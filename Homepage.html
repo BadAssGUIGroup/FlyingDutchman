@@ -50,19 +50,22 @@
             <p id="customerTab">Tab <></p>
             <button class="pure-button" type="button" style="float: right; padding-top: 2%; background-color: #FF7148; color: #F5f5f5" onclick="logOut()" id="button_logout">Logout</button>
         </div>
-        <div id="employeeInfoAndLogout" style="display: none; float: right; margin-right: 2%;   pointer-events: all">
+        <div id="employeeInfoAndLogout" style="display: none; pointer-events: all">
 
             <div id="employeeInfo">
                 <p id="employeeName">Employee ID: <> Name: <></p>
             </div>
 
-            <div id="logOutButton" style="float: right; background-color: #FF7148; color: #F5f5f5">
-                <button class="pure-button" type="button" style="background-color: #FF7148; color: #F5f5f5" onclick="logOut()">Logout</button>
+            <div id="logOutButton">
+                <button class="pure-button" type="button" style="background-color: #FF7148; color: #F5f5f5" id="employee_button_logout" onclick="logOut()">Logout</button>
+            </div>
+            <div id="employeeButtonsH">
+                <button class = "pure-button" type="button" id="employee_button_inventoryH" onclick="showInventory()">Inventory</button>
+                <button class = "pure-button" type="button" id="employee_button_customersH" onclick="showCustomers()">Customers</button>
+                <button class = "pure-button" type="button" id="employee_button_orderH" onclick="takeOrder()">Order</button>
             </div>
         </div>
     </div>
-
-
 
     <div id="drinkMenu" class="pure-menu pure-menu-open pure-menu-horizontal">
         <ul>
@@ -73,7 +76,6 @@
             <li><a href="#" onclick="displayItems('DARK_LAGER')" id = "button_dl" >Dark Lagers</a></li>
             <li><a href="#" onclick="displayItems('WHEAT_BEER')" id = "button_wb" >Wheat Beers</a></li>
             <li><a href="#" onclick="displayItems('MISC')" id = "button_ms" >Misc</a></li>
-            <li><a href="#" onclick="displayItems('Update')" id = "button_updateInventory" style="display: none">Update Inventory</a></li>
         </ul>
     </div>
 
@@ -90,12 +92,9 @@
 
 
 <div id = Content>
-
-    <table id="beers">
-
+    <table class="displayTable" id="beers">
         <thead></thead>
         <tbody></tbody>
-
     </table>
 </div>
 
@@ -164,7 +163,6 @@
     </div>
 </div>
 
-
 <script type="text/javascript" src="js/vendor/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/vendor/lodash.min.js"></script>
 <script type="text/javascript" src="js/vendor/gl-matrix-min.js"></script>
@@ -204,6 +202,30 @@
 <script>
     window.setInterval(function(){globals.botw.rotateNextBeer(globals.botw)},5000);
 </script>
+
+<div id="employeeMenu">
+    <div class="employeeButtons" id="employeeButtons">
+        <button class = "pure-button" type="button" id="employee_button_inventory" onclick="showInventory()">Inventory</button>
+        <button class = "pure-button" type="button" id="employee_button_customers" onclick="showCustomers()">Customers</button>
+        <button class = "pure-button" type="button" id="employee_button_order" onclick="takeOrder()">Order</button>
+    </div>
+</div>
+
+<div id="employeeContent">
+    <div id="employeeSubContent">
+        <form id="filterForm">
+            <div id="filterBox">
+                <label id="filterLabel" for="filterName">Filter:</label>
+                <input type="text" name="name" id="filterName" class="input_filter" placeholder="filter" required/>
+                <button class="pure-button" type="button" style="background-color: #FF7148; color: #F5f5f5" onclick="filterInventory()" id = "button_filter">Filter</button>
+            </div>
+        </form>
+    <table class="displayTable" id="employeeInventory">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+    </div>
+</div>
 
 </body>
 </html>

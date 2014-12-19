@@ -31,13 +31,53 @@ UserList.prototype.refresh = function(callback) {
         if (callback != null)
             callback();
 
+        that.sort("username");
         that.refreshing = false;
     });
+};
 
+UserList.prototype.sort = function(sortField) {
+    this.userList = sort(this.userList, sortField, (sortField == "assets"));
 };
 
 UserList.prototype.display = function(tableId) {
+    var table = document.getElementById(tableId);
+    var header = table.getElementsByTagName('thead')[0];
+    var body = table.getElementsByTagName('tbody')[0];
 
+    _.forEach(header.rows, function (row, nr) {
+        header.deleteRow();
+    });
+
+    _.forEach(body.rows, function (row, nr) {
+        body.deleteRow();
+    });
+
+    var headerRow = header.insertRow();
+    var headerRowStr = "";
+    var user0 = this.userList[0];
+
+    _.forEach(user0, function (value, key) {
+        var headerId = "table_header_" + key;
+        headerRowStr += "<th class=" + headerId + " onclick=\"sortUserList('" + key + "')\">" + key + "</th>";
+    });
+    headerRow.innerHTML = headerRowStr;
+
+    var rowCount = 0;
+    var that = this;
+
+    _(this.userList).forEach(function (user) {
+        var row = body.insertRow(rowCount);
+
+        var cellCount = 0;
+        _.forEach(user, function (value, key) {
+            var cell = row.insertCell(cellCount);
+            cell.innerHTML = value;
+            cellCount++;
+        });
+
+        rowCount++;
+    });
 };
 
 UserList.prototype.toJSON = function () {

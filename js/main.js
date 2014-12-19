@@ -37,6 +37,8 @@ function loginUser(){
     if (globals.carts[userName] == null)
         globals.carts[userName] = new ShoppingCart(userName, "cart", "SEK");
     globals.shoppingCart = globals.carts[userName];
+
+    languageManager.setLanguage();
 }
 
 function displayUserInfo(user) {
@@ -46,9 +48,10 @@ function displayUserInfo(user) {
 
         $("#employeeInfoAndLogout").show();
         $("#employeeName").html(userTag);
-        $("#button_updateInventory").show();
-        $("#employeeTabInfo").show();
         $("#beersOfTheWeek").hide();
+        $("#drinkMenu").hide();
+        $("#Content").hide();
+        $("#employeeMenu").show();
     } else {
         userTag = "<text class=customer_string>Customer</text>: " + user.firstName + " " + user.lastName;
         var userTabAmount = "<text class=credit_string>Credit</text>: " + user.assets;
@@ -72,10 +75,56 @@ function logOut(){
     $("#employeeTabInfo").hide();
     $("#shoppingCart").hide();
     $("#beersOfTheWeek").show();
+    $("#drinkMenu").show();
+    $("#Content").show();
+    $("#employeeContent").hide();
+    $("#employeeMenu").hide();
+    $("#employeeButtonsH").hide();
     globals.loggedInUser = null;
     displayItems();
 }
 
+function showInventory() {
+    $("#Content").hide();
+    $("#shoppingCart").hide();
+    $("#drinkMenu").show();
+    $("#employeeContent").show();
+    $("#employeeButtonsH").show();
+    $("#employeeMenu").hide();
+    $("#employeeInventory").show();
+    $("#filterForm").show();
+    displayItems("ALL", "employeeInventory");
+}
+
+function showCustomers() {
+    $("#Content").hide();
+    $("#shoppingCart").hide();
+    $("#drinkMenu").hide();
+    $("#employeeContent").show();
+    $("#employeeButtonsH").show();
+    $("#employeeMenu").hide();
+    $("#employeeInventory").show();
+    $("#filterForm").hide();
+    globals.userList.display("employeeInventory");
+    languageManager.setLanguage();
+}
+
+function takeOrder() {
+    $("#drinkMenu").show();
+    $("#employeeContent").hide();
+    $("#Content").show();
+    $("#shoppingCart").show();
+    $("#employeeButtonsH").show();
+    $("#employeeMenu").hide();
+}
+
+function filterInventory() {
+    var filterName = $("#filterName").val();
+    var view = globals.currentView;
+    view.filter = new Filter('namn', [filterName], true, false);
+    view.refresh();
+    view.display("employeeInventory");
+}
 
 function createNewCustomer(){
     var customerInfoDiv = document.getElementById("editOrAddCustomerInfo");
@@ -109,20 +158,32 @@ function addCustomer(){
     }
 }
 
-function chargeCustomer(){
-
+function sortCurrentView(sortField, table) {
+    var view = globals.currentView;
+    if (view == null)
+        return;
+    var user = globals.loggedInUser;
+    view.sort(sortField, (sortField == "count" || sortField == "pub_price"));
+    view.display(table || (user != null && user.isEmployee()) ? "employeeInventory" : "beers");
 }
 
-function displayItems(item, sortField) {
+function sortUserList(sortField) {
+    var userList = globals.userList;
+    userList.sort(sortField);
+    userList.display("employeeInventory");
+}
+
+function displayItems(item, table, sortField) {
     if (item == 'Update') {
         /*allow editing of "Inventory" fields, and sync to database when "Save Changes" is clicked*/
         alert("Updating Inventory not Supported Yet!!!");
     } else {
-    var view = (item != null) ? globals.viewCache.getView(item) : globals.viewCache.getView("ALL");
+        var view = (item != null) ? globals.viewCache.getView(item) : globals.viewCache.getView("ALL");
         if (sortField != null)
             view.sort(sortField);
         globals.currentView = view;
-        view.display('beers');
+        var user = globals.loggedInUser;
+        view.display(table || (user != null && user.isEmployee()) ? "employeeInventory" : "beers");
         languageManager.setLanguage();
     }
 }
