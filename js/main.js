@@ -121,9 +121,11 @@ function takeOrder() {
 function filterInventory() {
     var filterName = $("#filterName").val();
     var view = globals.currentView;
-    view.filter = new Filter('namn', [filterName], true, false);
+    var filter = view.tempFilter;
+    view.tempFilter = new Filter('namn', [filterName], true, false);
     view.refresh();
     view.display("employeeInventory");
+    view.tempFilter = filter;
 }
 
 function createNewCustomer(){

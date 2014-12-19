@@ -5,6 +5,7 @@
 function View(data, fields, filter, sortField, sortFieldIsNumber) {
     this.fields = fields;
     this.filter = filter;
+    this.tempFilter = null;
     this.sortField = sortField;
     this.sortFieldIsNumber = (sortFieldIsNumber == true);
     this.data = data;
@@ -25,7 +26,7 @@ View.prototype.refresh = function(data) {
         this.data = data;
     this.viewData = (this.filter != null) ?
         _.filter(this.data, function (datum) {
-            return this.filter.pass(datum);
+            return this.filter.pass(datum) && (this.tempFilter == null || this.tempFilter.pass(datum));
         }, this) :
         this.data;
     if (this.sortField != null)
