@@ -91,10 +91,18 @@ View.prototype.display = function(tableId) {
             cellCount++;
         });
 
-        row.onclick = function() {
-            if (globals.shoppingCart != null)
-                globals.shoppingCart.addItem(beer['beer_id'], beer['namn'], beer['pub_price']);
-        };
+        if (tableId == "employeeInventory") {
+            row.onclick = function () {
+                globals.inventory.restockBeer(beer['beer_id'], 1);
+                globals.currentView.refresh();
+                globals.currentView.display("employeeInventory");
+            };
+        } else {
+            row.onclick = function () {
+                if (globals.shoppingCart != null)
+                    globals.shoppingCart.addItem(beer['beer_id'], beer['namn'], beer['pub_price']);
+            };
+        }
         rowCount++;
     });
 

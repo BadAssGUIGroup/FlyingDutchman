@@ -92,6 +92,13 @@ Inventory.prototype.getView = function(fields, field, value) {
     return new View(beers, fields);
 };
 
+Inventory.prototype.restockBeer = function(beerId, quantity) {
+    var beer = this.beers[beerId];
+    beer['count'] += quantity;
+    request(globals.admin.name, globals.admin.password, globals.actions.restock, function(data) {
+    }, [{name: "beer_id", value: beerId}, {name: 'amount', value: quantity}, {name: 'price', value: beer['pub_price']}]);
+};
+
 Inventory.prototype.toJSON = function () {
     return {'inventory': this.inventory, 'beers': this.beers};
 };

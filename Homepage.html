@@ -157,7 +157,7 @@
     </table>
     <div id="cart_buttons">
         <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.clear()" id = "cart_clear" >Clear</button>
-        <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.checkout(); globals.currentView.display('beers'); displayUserInfo(globals.loggedInUser)" id = "cart_checkout">Checkout</button>
+        <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.checkout(); globals.currentView.display('beers'); if (!globals.loggedInUser.isEmployee()) displayUserInfo(globals.loggedInUser)" id = "cart_checkout">Checkout</button>
         <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.undo()" id = "cart_undo">Undo</button>
         <button class = "cart_button" type="button" style="display: inline" onclick = "globals.shoppingCart.redo()" id = "cart_redo">Redo</button>
     </div>
